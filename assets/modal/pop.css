@@ -1,0 +1,99 @@
+/* Existing styling */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.modal-content form{
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.inputs {
+  margin-bottom: 15px;
+}
+
+.date, .time{
+  width: 25%;
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 500px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Show modal with smooth animation */
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.submit {
+  background-color: #007575;
+  font-size: 15px;
+  color: #e6f2f2;
+  border: hidden;
+  border-radius: 8px;
+  padding: 10px 25px 10px 25px;
+}
+
+.submit:hover {
+  background-color: #008f8f;
+}
+
+.cancel {
+  background-color: #b53131;
+  font-size: 15px;
+  color: #e6f2f2;
+  border: hidden;
+  border-radius: 8px;
+  padding: 10px 25px 10px 25px;
+}
+
+.cancel:hover {
+  background-color: #d33a3a;
+}

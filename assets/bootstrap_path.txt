@@ -1,0 +1,7 @@
+CSS:
+<link rel="stylesheet" href="../plugins/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+
+JavaScript:
+<script src="../plugins/bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
+<script src="../plugins/bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
+<script src="../plugins/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>

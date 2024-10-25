@@ -1,0 +1,19 @@
+.suggestion-box {
+    border: 1px solid #ccc;
+    background-color: white;
+    position: absolute;
+    width: 300px; /* Adjust width as needed */
+    z-index: 1000;
+    display: none; /* Hidden by default */
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
