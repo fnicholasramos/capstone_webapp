@@ -56,13 +56,20 @@ select {
     padding: 0 0 0 0;
 }
 
+.table {
+    height: 600px;
+    border: hidden;
+    overflow-y: auto;
+    /* position: relative; */
+    border: 1px solid #949494;
+}
+
 
 table {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border: none;
     border-collapse: collapse;
     border-radius: 6px;
-    overflow: hidden;
     width: 100%;
 }
 
@@ -93,4 +100,26 @@ td:last-child, th:last-child {
 
 .top, .searchbar, .table {
     margin-bottom: 40px;
+}
+
+@media(max-width: 600px) {
+    .container {
+        width: fit-content;
+        margin-right: 20px;
+    }
+
+    .table th {
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .patientTable {
+        /* width: 100%; */
+        /* margin-right: 50px; */
+    }
+
 }

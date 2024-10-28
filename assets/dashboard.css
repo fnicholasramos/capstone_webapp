@@ -72,6 +72,9 @@ li:hover {
     margin-left: 10px;
 }
 
+.menu, .check, .cancel {
+    display: none;
+}
 
 a {
     display: block;
@@ -80,6 +83,10 @@ a {
 
 
 /* tier 3 */
+.logout-mobile {
+    display: none;
+}
+
 .logout, .out {
     border: none;
     background-color:  #007575;
@@ -108,4 +115,100 @@ a {
     text-align: center;
     font-size: 11px;
     margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+/* media query para sa poco loko */
+@media(max-width: 600px) {
+
+    /* all contents */
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+
+    .top_title {
+        margin-right: auto;
+        margin-left: 5px;
+    }
+
+    .top_logo {
+        height: 55px;
+        margin-left: 10px;
+    }
+
+    .menu {
+        display: flex;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    .check {
+        display: block;
+    }
+
+    .list {
+        background-color: #007575;
+        position: fixed;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        font-size: 11px;
+    }   
+
+    .logout-mobile {
+        display: block;
+    }
+
+    .logout-mobile:hover {
+        background-color: #008b8b;
+    }
+
+    .list {
+        right: -100%;
+        transition: all .5s;
+    }
+
+    .list.active {
+        left: 0;
+    }
+
+    .ramon {
+        margin-bottom: 10px;
+    }
+
+    .info {
+        height: 100%;
+    }
+
+    /* others */
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .copyright, .logout{
+        display: none;
+    }
+
 }
