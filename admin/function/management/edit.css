@@ -1,0 +1,102 @@
+/* Modal Styles */
+.modal-edit {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content-edit {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+.modal-content-edit h2 {
+    margin-top: 0;
+}
+
+.modal-content-edit label {
+    display: block;
+    margin-top: 10px;
+}
+
+h2 {
+    margin-bottom: 25px;
+}
+
+label {
+    color: #181818;
+    font-weight: 600;
+}
+
+.modal-content-edit input[type="text"],
+.modal-content-edit input[type="date"],
+.modal-content-edit input[type="time"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+input {
+    border: 1px solid #b4b4b4;
+}
+
+.edit-buttons{
+    margin-top: 15px;
+    display: flex;
+}
+
+.save {
+    background-color: #007575;
+    font-size: 15px;
+    color: #e6f2f2;
+    border: hidden;
+    border-radius: 8px;
+    padding: 10px 25px 10px 25px;
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.save:hover {
+    background-color: #066666;
+    cursor: pointer;
+}
+
+.cancel-edit {
+    background-color: #b53131;
+    font-size: 15px;
+    color: #e6f2f2;
+    border: hidden;
+    border-radius: 8px;
+    padding: 10px 25px 10px 25px;
+  }
+  
+.cancel-edit:hover {
+    background-color: #922929;
+    cursor: pointer;
+  }
+  
+

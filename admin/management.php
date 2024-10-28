@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="../assets/modal/pop.css">
     <link rel="stylesheet" href="../assets/visible_placeholder/search_highlight.css">
 
+
+    <link rel="stylesheet" href="function/management/delete.css">
+    <link rel="stylesheet" href="function/management/edit.css">
+
      <!-- Montserrat font-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
  
      <!-- Inter font -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> -->
 </head>
 <body>
     <div class="container"> 
@@ -45,24 +49,15 @@
                 </tr>
             <tbody>
                 <?php include 'function/management/display_patient.php'; ?>
-                <!-- <tr>
-                    <td></td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr> -->
             </tbody>
             </table>
         </div>
     </div>
 
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
 
-    <!-- Modal content -->
+    <!-- Add New patient  -->
+    <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 class="title">Add New Patient</h2>
@@ -81,8 +76,45 @@
         </div>
     </div>
 
+    <!-- Edit Patient Information -->
+    <div id="editModal" class="modal-edit">
+        <div class="modal-content-edit">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Patient Information</h2>
+            <form id="editForm" action="function/management/edit.php" method="POST">
+                <input type="hidden" name="id" id="editId">
+                
+                <label for="patient_name">Patient Name:</label>
+                <input type="text" name="patient_name" id="editPatientName" required>
+
+                <label for="room_number">Room Number:</label>
+                <input type="text" name="room_number" id="editRoomNumber" required>
+
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="text" name="date_of_birth" id="editDateOfBirth" required>
+
+                <label for="admit_date">Admit Date:</label>
+                <input type="text" name="admit_date" id="editAdmitDate" required>
+
+                <label for="admit_time">Admit Time:</label>
+                <input type="text" name="admit_time" id="editAdmitTime" required>
+
+                <div class="edit-buttons">
+                    <button type="submit" class="save">Save Changes</button>
+                    <button type="button" class="cancel-edit" id="cancel-edit">Cancel</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
     <script src="../assets/visible_placeholder/searchbar.js"></script>
     <script src="../assets/modal/pop.js"></script>
+    <script src="function/management/edit.js"></script>
+    <script src="function/management/delete.js"></script>
+    
 
 </body>
 </html>

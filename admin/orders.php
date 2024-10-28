@@ -24,7 +24,7 @@
             <span>Search Patients:</span>
             <input type="text" placeholder="Ex. Ramon Salasalan" class="bar" id="searchInput" onkeyup="searchSuggestions()">
             <div id="suggestionBox" class="suggestion-box">test</div>
-            <button class="insert">Insert</button>
+            <button class="insert" onclick="insertText()">Insert</button>
             
         </div>
 
@@ -32,7 +32,7 @@
             <h3>IVF Label</h3>
 
             <div class="selected">
-                <span>Patient Name: <u>Edsel S. Nasol</u></span>
+                <span>Patient Name: <u id="patientName"></u></span>
             </div>
 
             <div class="fluid">
@@ -74,5 +74,6 @@
     </div>
 
     <script src="function/orders/search_suggestion.js"></script>
+    <script src="function/orders/insert_result.js"></script>
 </body>
 </html>

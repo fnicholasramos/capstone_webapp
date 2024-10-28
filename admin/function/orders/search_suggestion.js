@@ -9,6 +9,9 @@ function searchSuggestions() {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'function/orders/search_suggestion.php?query=' + input, true);
 
+    // for large data set (sakila database)
+    //  xhr.open('GET', 'test_database.php?query=' + input, true); 
+
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const suggestionBox = document.getElementById('suggestionBox');

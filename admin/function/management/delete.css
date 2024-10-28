@@ -1,0 +1,48 @@
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Button for opening the dropdown */
+.dropdown-button {
+    padding: 3px 5px 3px 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #6b757d;
+    color: white;
+    border-radius: 4px;
+    
+}
+
+.dropdown-button:hover {
+    background-color: #525a61;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 100px;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 12px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown when active */
+.dropdown.show .dropdown-menu {
+    display: block;
+}
