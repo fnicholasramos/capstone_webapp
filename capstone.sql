@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2024 at 07:52 PM
+-- Generation Time: Oct 29, 2024 at 12:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -147,12 +147,14 @@ CREATE TABLE `patient_management` (
 --
 
 INSERT INTO `patient_management` (`id`, `patient_name`, `room_number`, `date_of_birth`, `admit_date`, `admit_time`, `actions`) VALUES
-(1, 'Ramon Gemaguim', '0001', '2002/03/03', '2024/10/25', '08:25:32', ''),
-(2, 'Francis Nicholas P. Ramos', '0002', '2003/02/10', '2024/10/26', '08:25:32', ''),
-(3, 'Edsel S. Nasol', '0001', '2002/04/05', '2024/10/27', '09:35:22', ''),
-(4, 'Edrian Salasalan', '0004', '2002/05/15', '2024/10/28', '10:00:32', ''),
-(5, 'niko', '0005', '2003/02/10', '2024/10/25', '08:25:32', ''),
-(6, 'Maria Yvone Siobal', '0027', '2003/09/18', '2024/02/10', '11:17:00', '');
+(6, 'Maria Yvone Siobal', '0027', '2003/09/18', '2024/02/10', '11:17:00', ''),
+(8, 'Perry Da Black Camp', '0003', '2024-10-12', '2024-10-04', '10:01:00', ''),
+(9, 'Winter Mae', '0004', '2002/04/05', '2024/10/26', '08:25:32', ''),
+(12, 'Casper Mcposa', '0089', '2003/02/10', '2024/10/27', '10:00:32', ''),
+(13, 'King Tyrone', '0069', '2002/03/03', '2024/10/26', '08:25:32', ''),
+(14, 'Meowchi', '0078', '2003/02/10', '2024/10/28', '10:00:32', ''),
+(15, 'mcposa', '0005', '2003/02/10', '2024/10/25', '08:25:32', ''),
+(17, 'Posang Mataba', '0004', '2024-10-28', '2024-10-28', '11:21pm', '');
 
 --
 -- Indexes for dumped tables
@@ -196,7 +198,7 @@ ALTER TABLE `iv_data`
 -- AUTO_INCREMENT for table `patient_management`
 --
 ALTER TABLE `patient_management`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
