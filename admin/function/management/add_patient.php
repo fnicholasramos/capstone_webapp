@@ -12,7 +12,8 @@ $sql = "INSERT INTO patient_management (patient_name, room_number, date_of_birth
         VALUES ('$patient_name', '$room_number', '$date_of_birth', '$admit_date', '$admit_time')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New patient added successfully!";
+    header("Location: ../../management.php"); 
+    exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

@@ -1,9 +1,13 @@
+<?php include 'function/login/session.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/monitoring.css">
+
+    <link rel="stylesheet" href="function/management/delete.css">
+    
 
     <!-- Montserrat font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,152 +36,21 @@
                     <th width="30px">Ward Number</th>
                     <th width="150px">Flow Rate (mL/h)</th>
                     <th width="200px">Volume Remaining (mL)</th>
-                    <th width="200px">Drip Rate (drop/min)</th>
-                    <th width="30px">Status</th>
+                    <th width="200px">Nurse</th>
                     <th>Actions</th>
                 </tr>
 
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
-                <tr>
-                    <td>Francis Nicholas Paglinawan Ramos</td>
-                    <td>0001</td>
-                    <td>100</td>
-                    <td>1000</td>
-                    <td>20</td>
-                    <td>Normal</td>
-                    <td>Select</td>
-                </tr>
+                <tbody>
+                    <?php include 'function/monitoring/monitored_patient.php'; ?>
+                </tbody>
             </table>
         </div>
 
-        <div class="footer">
-            
-        </div>
+        <!-- Modal -->
+
     </div>  
+
+    <script src="function/management/edit.js"></script>
+    <script src="function/management/delete.js"></script>
 </body>
 </html>

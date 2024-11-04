@@ -1,3 +1,4 @@
+<?php include 'function/login/session.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
