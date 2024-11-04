@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2024 at 12:20 PM
+-- Generation Time: Nov 04, 2024 at 06:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -29,10 +29,26 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `doc_orders` (
   `id` int(11) NOT NULL,
-  `flow_rate` int(10) NOT NULL,
+  `patient_name` varchar(255) NOT NULL,
+  `iv_fluid_name` varchar(255) NOT NULL,
   `volume` int(10) NOT NULL,
-  `drip_rate` int(10) NOT NULL
+  `flow_rate` int(10) NOT NULL,
+  `incorp` varchar(255) NOT NULL,
+  `ivf_no` varchar(255) NOT NULL,
+  `date_started` varchar(255) NOT NULL,
+  `time_started` varchar(255) NOT NULL,
+  `date_consumed` varchar(255) NOT NULL,
+  `time_consumed` varchar(255) NOT NULL,
+  `nurse` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `doc_orders`
+--
+
+INSERT INTO `doc_orders` (`id`, `patient_name`, `iv_fluid_name`, `volume`, `flow_rate`, `incorp`, `ivf_no`, `date_started`, `time_started`, `date_consumed`, `time_consumed`, `nurse`) VALUES
+(1, 'Chad Kroeger', 'Elixir', 1, 100, '', '2', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Justin Bieber'),
+(2, 'Francis Nicholas P. Ramos', 'Dark Elixir', 1, 150, '', '4', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Edrian Gemaguim');
 
 -- --------------------------------------------------------
 
@@ -147,14 +163,33 @@ CREATE TABLE `patient_management` (
 --
 
 INSERT INTO `patient_management` (`id`, `patient_name`, `room_number`, `date_of_birth`, `admit_date`, `admit_time`, `actions`) VALUES
-(6, 'Maria Yvone Siobal', '0027', '2003/09/18', '2024/02/10', '11:17:00', ''),
-(8, 'Perry Da Black Camp', '0003', '2024-10-12', '2024-10-04', '10:01:00', ''),
-(9, 'Winter Mae', '0004', '2002/04/05', '2024/10/26', '08:25:32', ''),
-(12, 'Casper Mcposa', '0089', '2003/02/10', '2024/10/27', '10:00:32', ''),
-(13, 'King Tyrone', '0069', '2002/03/03', '2024/10/26', '08:25:32', ''),
-(14, 'Meowchi', '0078', '2003/02/10', '2024/10/28', '10:00:32', ''),
-(15, 'mcposa', '0005', '2003/02/10', '2024/10/25', '08:25:32', ''),
-(17, 'Posang Mataba', '0004', '2024-10-28', '2024-10-28', '11:21pm', '');
+(6, 'Edsel S. Nasol', '0027', '2003/09/18', '2024/02/10', '11:17:00', ''),
+(8, 'Edrian Salasalan', '0005', '2024-10-12', '2024-10-04', '12:00pm', ''),
+(9, 'Ramon G. Gemaguim', '0006', '2002/04/05', '2024/10/26', '09:35:32', ''),
+(12, 'Francis Nicholas P. Ramos', '0090', '2003/02/11', '2024/10/28', '11:00:32', ''),
+(30, 'Zach Gallardo', '0002', '2004/09/02', '2024/10/25', '08:25:32', ''),
+(31, 'Nebb Querro', '0010', '2003/02/10', '2024/10/25', '11:17:00', ''),
+(32, 'Chad Kroeger', '0011', '2003/02/10', '2024/10/27', '11:17:00', ''),
+(33, 'Chester Bennington', '0019', '2003/02/10', '2024/10/27', '08:25:32', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -179,6 +214,12 @@ ALTER TABLE `patient_management`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -186,7 +227,7 @@ ALTER TABLE `patient_management`
 -- AUTO_INCREMENT for table `doc_orders`
 --
 ALTER TABLE `doc_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `iv_data`
@@ -198,7 +239,13 @@ ALTER TABLE `iv_data`
 -- AUTO_INCREMENT for table `patient_management`
 --
 ALTER TABLE `patient_management`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
