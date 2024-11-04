@@ -1,3 +1,5 @@
+<?php include 'function/login/session.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,10 +70,12 @@
 
             <!-- logout -->
             <div class="logout">
-                <button class="out">
-                    <span><img src="../assets/images/logout.png" height="40px">
-                    Logout</span>
-                </button>
+                <form action="function/login/logout.php" method="POST">
+                    <button class="out">
+                        <span><img src="../assets/images/logout.png" height="40px">
+                        Logout</span>
+                    </button>
+                </form>
 
                 <span class="copyright">Copyright &copy; IV Bag Monitoring and Alert System 2025</span>
             </div>
