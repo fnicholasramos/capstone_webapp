@@ -20,37 +20,44 @@
 </head>
 <body>
     <div class="main">
-        <div class="top">
-            <img src="assets/images/jrrmc_logo.png" alt="logo" height="78px" width="auto" class="logo">
-
-            <span class="jrrmc">Jose R. Reyes Memorial Medical Center</span>
+        <div class="dash">
+            <img src="assets/images/onm.jpg" class="dashImage">
         </div>
 
-        <div class="login">
-            <div class="title">
-                <img src="assets/images/iv_bag.png" alt="iv" class="heart" height="55px" width="55px">
-                <span class="healthguard">HEALTH GUARD</span>
+        <div class="rightLogin">
+            <div class="top">
+                <img src="assets/images/onm_logo.png" alt="logo" height="78px" width="auto" class="logo">
+
+                <span class="jrrmc">Ospital ng Maynila Medical Center</span>
             </div>
 
-            <div class="loginInput">
-                <form>
-                    <div>
-                        <input type="text" placeholder="Username" required>
-                    </div>
+            <div class="login">
+                <!-- <div class="title">
+                    <img src="assets/images/iv_bag.png" alt="iv" class="heart" height="55px" width="55px">
+                    <span class="healthguard">HEALTH GUARD</span>
+                </div> -->
 
-                    <div>
-                        <input type="Password" placeholder="Password" required>
-                    </div>
-                    
-                    
-                    <button type="input">Login</button>
-                </form>
+                <div class="loginInput">
+                    <form method="POST">
+                        <?php include 'admin/function//login/validate.php'; ?>
+                        <div>
+                            <input type="text" name="username" placeholder="Username" required>
+                        </div>
+
+                        <div>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        
+                        
+                        <button type="input">Login</button>
+                    </form>
+                </div>
+
             </div>
 
-        </div>
-
-        <div class="footer">
-            <span class="project_title">Copyright &copy; IV Bag Monitoring and Alert System 2025</span>
+            <div class="footer">
+                <span class="project_title">Copyright &copy; IV Bag Monitoring and Alert System 2025</span>
+            </div>
         </div>
     </div>
 </body>
