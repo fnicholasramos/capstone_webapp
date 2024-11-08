@@ -8,6 +8,8 @@ function openEditModal(id, name, room, dob, admitDate, admitTime) {
 
     // Show the modal
     document.getElementById('editModal').style.display = 'block';
+
+    document.getElementById('editPatientName').focus();
 }
 
 function closeModal() {
