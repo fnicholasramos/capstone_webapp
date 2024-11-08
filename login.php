@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/prompt.css">
 
     <link rel="icon" href="https://jrrmmc.gov.ph/images/Logos/official-logo-PNG.png">
     
@@ -32,14 +33,8 @@
             </div>
 
             <div class="login">
-                <!-- <div class="title">
-                    <img src="assets/images/iv_bag.png" alt="iv" class="heart" height="55px" width="55px">
-                    <span class="healthguard">HEALTH GUARD</span>
-                </div> -->
-
                 <div class="loginInput">
-                    <form method="POST">
-                        <?php include 'admin/function//login/validate.php'; ?>
+                    <form method="POST" id="loginForm">
                         <div>
                             <input type="text" name="username" placeholder="Username" required>
                         </div>
@@ -48,8 +43,19 @@
                             <input type="password" name="password" placeholder="Password" required>
                         </div>
                         
+                        <div class="buttons">
+                            <a href="https://example.com" class="forgot">Forgot Password?</a>
+                            <button type="input">Login</button>
+                        </div>
                         
-                        <button type="input">Login</button>
+
+                        <?php include 'admin/function/login/validate.php'; ?>
+
+                        <?php if (!empty($error_message)): ?>
+                            <div class="error-message"><?php echo $error_message; ?></div>
+                        <?php endif; ?>
+                        
+                        <div class="error-message" id="countdownMessage" style="display: none;"></div>
                     </form>
                 </div>
 
@@ -60,5 +66,51 @@
             </div>
         </div>
     </div>
+
+    <!-- mobile view -->
+
+
+
+    <script>
+    // JavaScript to disable form and display countdown timer
+    document.addEventListener('DOMContentLoaded', function() {
+        <?php if ($_SESSION['attempts'] >= 3): ?>
+            disableForm();
+            // Pass the remaining lockout time to JavaScript from PHP
+            startCountdown(<?php echo max(0, 30 - (time() - $_SESSION['lockout_time'])); ?>);
+        <?php endif; ?>
+    });
+
+    function disableForm() {
+        document.getElementById("loginForm").querySelectorAll("input, button").forEach(element => {
+            element.disabled = true;
+        });
+    }
+
+    function startCountdown(duration) {
+        const countdownMessage = document.getElementById("countdownMessage");
+        countdownMessage.style.display = 'block';
+
+        let remainingTime = duration;
+
+        const interval = setInterval(() => {
+            countdownMessage.textContent = "Too many attempts. Try again in " + remainingTime + " seconds.";
+
+            if (remainingTime <= 0) {
+                clearInterval(interval);
+                countdownMessage.style.display = 'none';
+                enableForm();
+            }
+            remainingTime--;
+        }, 1000);
+    }
+
+    function enableForm() {
+        document.getElementById("loginForm").querySelectorAll("input, button").forEach(element => {
+            element.disabled = false;
+        });
+    }
+</script>
+
 </body>
 </html>
