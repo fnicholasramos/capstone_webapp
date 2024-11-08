@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2024 at 06:42 PM
+-- Generation Time: Nov 08, 2024 at 11:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -47,8 +47,18 @@ CREATE TABLE `doc_orders` (
 --
 
 INSERT INTO `doc_orders` (`id`, `patient_name`, `iv_fluid_name`, `volume`, `flow_rate`, `incorp`, `ivf_no`, `date_started`, `time_started`, `date_consumed`, `time_consumed`, `nurse`) VALUES
-(1, 'Chad Kroeger', 'Elixir', 1, 100, '', '2', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Justin Bieber'),
-(2, 'Francis Nicholas P. Ramos', 'Dark Elixir', 1, 150, '', '4', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Edrian Gemaguim');
+(1, 'Nickelback', 'Saline', 1000, 110, '', '3', '2025/11/4', '11:34pm', '2025/11/5', '12:34pm', 'Chad Kroeger'),
+(2, 'Francis Nicholas P. Ramos', 'Dark Elixir', 1, 150, '', '4', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Edrian Gemaguim'),
+(3, '', 'Dark Elixir', 1000, 100, '', '1', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Ramon Nasol'),
+(4, 'Edrian Salasalan', 'Dark Elixir', 1000, 100, '', '3', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Blue'),
+(5, 'fd', 'Dark Elixir', 12, 122, '', '12', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Ramon Salasalan'),
+(6, '12', 'Dark Elixir', 12, 12, 'Incorporation', '', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Ramon'),
+(7, 'Testuser11', 'gold', 1200, 150, '', '45', '2024/11/08', '4:10pm', '2024/11/08', '5:10pm', 'AKO'),
+(8, 'fdfd', 'fddfdf', 3223, 23, '', '12', '2024/11/4', '10:34pm', '2024/11/5', '', ''),
+(9, 'Chester Bennington', 'Dark Elixir', 1000, 100, '', '5', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Ramon'),
+(10, 'Ma. Yvone Cemp', 'Joy', 1200, 100, '', '3', '2024/11/08', '8:36:51 pm', '2024/11/08', '2024/11/08', 'Francis Cemp'),
+(11, '', '', 0, 0, '', '', '', '', '', '', ''),
+(12, 'Ma. Yvone Cemp', 'Dark Elixir', 1000, 100, '', '1', '2024/11/4', '10:34pm', '2024/11/5', '10:34pm', 'Francis Nicholas Ramos');
 
 -- --------------------------------------------------------
 
@@ -163,14 +173,20 @@ CREATE TABLE `patient_management` (
 --
 
 INSERT INTO `patient_management` (`id`, `patient_name`, `room_number`, `date_of_birth`, `admit_date`, `admit_time`, `actions`) VALUES
-(6, 'Edsel S. Nasol', '0027', '2003/09/18', '2024/02/10', '11:17:00', ''),
+(6, 'Meow catt', '0029', '3003/09/18', '3024/02/10', '22:17:00', ''),
 (8, 'Edrian Salasalan', '0005', '2024-10-12', '2024-10-04', '12:00pm', ''),
 (9, 'Ramon G. Gemaguim', '0006', '2002/04/05', '2024/10/26', '09:35:32', ''),
 (12, 'Francis Nicholas P. Ramos', '0090', '2003/02/11', '2024/10/28', '11:00:32', ''),
 (30, 'Zach Gallardo', '0002', '2004/09/02', '2024/10/25', '08:25:32', ''),
 (31, 'Nebb Querro', '0010', '2003/02/10', '2024/10/25', '11:17:00', ''),
 (32, 'Chad Kroeger', '0011', '2003/02/10', '2024/10/27', '11:17:00', ''),
-(33, 'Chester Bennington', '0019', '2003/02/10', '2024/10/27', '08:25:32', '');
+(33, 'Chester Bennington', '0019', '2003/02/10', '2024/10/27', '08:25:32', ''),
+(37, 'dsd', '121', 'qqq', 'q', 'qqq', ''),
+(39, 'Ma. Yvone Cemp', '0027', '2003/09/18', '2024/11/08', '08:3516pm', ''),
+(40, 'ewew', '21', 'dsdd', 'dsds', 'dsdsd', ''),
+(41, 'dsd', '1221', 'ssdsd', 'dssd', 'dssdsdsd', ''),
+(43, 'YawaKa', '0002', 'Birthdate', 'Date', 'Time', ''),
+(44, 'test caps', '0006', '2030/11/11', '2026/11/11', '6:49:52 am', '');
 
 -- --------------------------------------------------------
 
@@ -189,7 +205,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
+(1, 'admin', 'admin'),
+(2, 'test', 'test');
 
 --
 -- Indexes for dumped tables
@@ -227,7 +244,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `doc_orders`
 --
 ALTER TABLE `doc_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `iv_data`
@@ -239,13 +256,13 @@ ALTER TABLE `iv_data`
 -- AUTO_INCREMENT for table `patient_management`
 --
 ALTER TABLE `patient_management`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
