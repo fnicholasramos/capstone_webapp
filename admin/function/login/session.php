@@ -18,9 +18,12 @@ if (isset($_SESSION['last_activity'])) {
     
     if ($elapsedTime > $timeoutDuration) {
         // Destroy the session and redirect to login page if timeout is reached
+        
         session_unset();
         session_destroy();
+        
         header("Location: /capstone");
+        echo "<div class='prompt'>TEST</div>";
         exit;
     }
 }
