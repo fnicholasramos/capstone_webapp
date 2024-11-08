@@ -12,9 +12,6 @@ body {
     height: 90vh; /* 100% of the viewport height */
     margin: 0;
     background-color: #dddddd;
-    /* background-image: url('images/transparent.png');
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 
@@ -79,7 +76,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 300px;
-    /* border: 1px solid green; */
     align-items: center;
     justify-content: center;
 }
@@ -93,8 +89,20 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-    /* border: 1px solid green; */
+}
+
+.buttons {
+    display: flex;
+}
+
+a {
+    color: #0f61e4;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 button {
@@ -152,4 +160,44 @@ input {
     color: #a1a1a1;
 }
 
+/* mobile view  */
 
+
+/* media query  */
+@media(max-width: 768px) {
+    .main {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        height:fit-content;
+        padding: 10px 15px 10px 15px;
+    }
+
+    .top, .logo{
+        display: flex;
+        justify-content: center;
+        height: 90px;
+        margin-right: 0;
+    }
+
+    .loginInput{
+        display: block;
+    }
+
+    .rightLogin {
+        width: auto;
+        display: block;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        font-size: 11px;
+    }
+
+
+    /* disappear */
+    .jrrmc, .dash {
+        display: none;
+    }
+}

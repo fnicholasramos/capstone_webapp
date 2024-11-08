@@ -13,14 +13,14 @@
     <link rel="stylesheet" href="function/management/edit.css">
 
      <!-- Montserrat font-->
-     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
  
      <!-- Inter font -->
-     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> -->
+     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container"> 
@@ -34,7 +34,6 @@
                 Search: 
                 <input type="text" id="searchInput" placeholder="Ex. Ramon Gemaguin" onkeyup="searchTable()">
             </span>
-
         </div>
 
         <div class="table">
@@ -48,9 +47,10 @@
                     <th style="text-align: left;">Admit Time</th>
                     <th>Actions</th>
                 </tr>
-            <tbody>
-                <?php include 'function/management/display_patient.php'; ?>
-            </tbody>
+                
+                <tbody>
+                    <?php include 'function/management/display_patient.php'; ?>
+                </tbody>
             </table>
         </div>
     </div>
@@ -102,7 +102,7 @@
 
                 <div class="edit-buttons">
                     <button type="submit" class="save">Save Changes</button>
-                    <button type="button" class="cancel-edit" id="cancel-edit">Cancel</button>
+                    <button type="button" class="cancel-edit" id="cancel" onclick="closeModal()">Cancel</button>
                 </div>
 
             </form>
@@ -115,7 +115,5 @@
     <script src="../assets/modal/pop.js"></script>
     <script src="function/management/edit.js"></script>
     <script src="function/management/delete.js"></script>
-    
-
 </body>
 </html>

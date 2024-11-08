@@ -26,7 +26,6 @@
             <input type="text" placeholder="Ex. Ramon Salasalan" class="bar" id="searchInput" onkeyup="searchSuggestions()">
             <div id="suggestionBox" class="suggestion-box">test</div>
             <button class="insert" onclick="insertText()">Insert</button>
-            
         </div>
 
         <form id="ivfForm" action="function/orders/insert_order.php" method="POST" onsubmit="copyPatientName()">
@@ -41,11 +40,11 @@
 
                 <div class="fluid">
                     <span>IV Fluid: 
-                        <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid"><br><br>
+                        <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid" required><br><br>
                         Volume:
-                        <input type="number" name="volume" placeholder="L" min="0" class="inputs"><br><br>
+                        <input type="number" name="volume" placeholder="mL" min="0" class="inputs" required><br><br>
                         Flow Rate:
-                        <input type="number" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3">
+                        <input type="number" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3" required>
                     </span>
                 </div>
 
@@ -54,22 +53,22 @@
                         <span>Incorporation: <input type="text" name="incorporation" placeholder="optional"></span>
                     </div>
                     <div class="ivf_no">
-                        <span>IVF no. <input type="number" name="ivf_no" min="0" class="inputs"></span>
+                        <span>IVF no. <input type="number" name="ivf_no" min="0" class="inputs" required></span>
                     </div>
                     <div class="dateStarted">
                         <span>Date and Time Started: 
-                            <input type="text" name="date_started" placeholder="mm/dd/yyyy" class="inputs"> 
-                            <input type="text" name="time_started" placeholder="hh:mm:ss:tt" class="inputs">
+                            <input type="text" name="date_started" placeholder="mm/dd/yyyy" class="inputs" required> 
+                            <input type="text" name="time_started" placeholder="hh:mm:ss:tt" class="inputs" required>
                         </span>
                     </div>
                     <div class="consumed">
                         <span>Date and Time to be consumed: 
-                            <input type="text" name="date_consumed" placeholder="mm/dd/yyyy" class="inputs"> 
-                            <input type="text" name="time_consumed" placeholder="hh:mm:ss:tt" class="inputs">
+                            <input type="text" name="date_consumed" placeholder="mm/dd/yyyy" class="inputs" required> 
+                            <input type="text" name="time_consumed" placeholder="hh:mm:ss:tt" class="inputs" required>
                         </span>
                     </div>
                     <div class="nurse">
-                        <span>Nurse on Duty: <input type="text" name="nurse" placeholder="Name"></span>
+                        <span>Nurse on Duty: <input type="text" name="nurse" placeholder="Name" required></span>
                     </div>
                 </div>
                 
