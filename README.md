@@ -4,6 +4,9 @@ This project is a web application developed as part of our capstone project for 
 
 This project is created and will be part of [Ospital ng Maynila](https://www.facebook.com/ommcofficial/), who will serve as our client and primary source of information that will guide us in gathering the essential knowledge and requirements needed for effective and secure data management.
 
+⚠️ **Note:** This project is still under development.
+
+
 ## Setup
 
 1. Install XAMPP [Apache Friends](https://www.apachefriends.org/) or [Installer](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.12/xampp-windows-x64-8.2.12-0-VS16-installer.exe)
