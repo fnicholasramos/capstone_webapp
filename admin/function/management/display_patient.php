@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 
-$sql = "SELECT id, patient_name, room_number, date_of_birth, admit_date, admit_time FROM patient_management";
+$sql = "SELECT id, patient_name, room_number, date_of_birth, admit_date, admit_time FROM patient_management ORDER BY id DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

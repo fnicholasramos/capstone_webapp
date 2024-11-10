@@ -57,13 +57,13 @@
                     </div>
                     <div class="dateStarted">
                         <span>Date and Time Started: 
-                            <input type="text" name="date_started" placeholder="mm/dd/yyyy" class="inputs" required> 
+                            <input type="date" name="date_started" placeholder="mm/dd/yyyy" class="inputs" required> 
                             <input type="text" name="time_started" placeholder="hh:mm:ss:tt" class="inputs" required>
                         </span>
                     </div>
                     <div class="consumed">
                         <span>Date and Time to be consumed: 
-                            <input type="text" name="date_consumed" placeholder="mm/dd/yyyy" class="inputs" required> 
+                            <input type="date" name="date_consumed" placeholder="mm/dd/yyyy" class="inputs" required> 
                             <input type="text" name="time_consumed" placeholder="hh:mm:ss:tt" class="inputs" required>
                         </span>
                     </div>

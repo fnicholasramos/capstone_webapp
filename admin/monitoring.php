@@ -81,8 +81,8 @@
                             <span>IVF no. <input type="number" name="ivf_no" id="iv_no" min="0" class="inputs"></span>
                         </div>
                         <div class="dateStarted">
-                            <span>Date and Time Started:
-                                <input type="text" name="date_started" id="dateStarted" placeholder="mm/dd/yyyy" class="inputs">
+                            <span>Date and Time Started: 
+                                <input type="date" name="date_started" id="dateStarted" placeholder="mm/dd/yyyy" class="inputs">
                                 <input type="text" name="time_started" id="timeStarted" placeholder="hh:mm:ss:tt" class="inputs">
                             </span>
                         </div>

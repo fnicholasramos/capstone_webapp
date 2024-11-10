@@ -26,7 +26,11 @@
             <div class="second-container">
                 <div class="top">
                     <img src="../assets/images/iv_bag.png" alt="logo" height="75px" width="auto" class="top_logo">
-                    <span class="top_title">Health Guard</span>
+
+                    <a href="dashboard.php" class="landPage">
+                        <span class="top_title">Health Guard</span>
+                    </a>
+
                     <img src="../assets/images/close.png" alt="menu" class="cancel" height="25px">
                     <img src="../assets/images/hamburger.png" alt="menu" onclick="toggleSidebar()" class="menu" height="25px">
                     
@@ -82,19 +86,14 @@
         </div>
 
         <div class="info">
-            <iframe src="" name="frame" width="100%" height="99%" style="border:none;"></iframe>
+            <iframe src="landpage.php" name="frame"></iframe>
         </div>
 
         
     </div>
 
     <script src="../assets/digital_clock.js"></script>
-
-    <script>
-  function toggleSidebar() {
-    document.getElementById("list").classList.toggle("active");
-  }
-</script>
+    <script src="../assets/mobile_slidebar.js"></script>
     
 </body>
 </html>

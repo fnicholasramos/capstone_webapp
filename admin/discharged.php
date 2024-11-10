@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/management.css">
 
+    <link rel="stylesheet" href="../assets/visible_placeholder/search_highlight.css">
+
      <!-- Montserrat font-->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,29 +27,30 @@
         <div class="searchbar">
             <span class="search">
                 Search: 
-                <input type="text" placeholder="Ex. Ramon Gemaguin">
+                <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Ex. Ramon Gemaguin">
             </span>
         </div>
 
         <div class="table">
-            <table>
+            <table id="patientTable">
                 <!-- header -->
                 <tr>
                     <th style="text-align: left;">Patient Name</th>
+                    <th style="text-align: left;">IV Fluid Name</th>
                     <th style="text-align: left;">Admission Date and Time</th>
                     <th style="text-align: left;">Discharge Date and Time</th>
                     <th>IVF no.</th>
                 </tr>
 
                 <tr>
-                    <td>Edsel Gemaguim</td>
-                    <td>2024-10-17</td>
-                    <td>2024-10-17</td>
-                    <td>5</td>
+                    <tbody>
+                        <?php include 'function/discharge/display_discharge.php'; ?>
+                    </tbody>
                 </tr>
             </table>
         </div>
     </div>
     
+    <script src="../assets/visible_placeholder/searchbar.js"></script>
 </body>
 </html>

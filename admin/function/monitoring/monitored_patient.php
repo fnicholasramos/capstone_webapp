@@ -3,7 +3,7 @@
 include 'db.php';
 
 // SQL query to select patient data
-$sql = "SELECT id, patient_name, iv_fluid_name, volume, flow_rate, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse FROM doc_orders";
+$sql = "SELECT id, patient_name, iv_fluid_name, volume, flow_rate, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse FROM doc_orders ORDER BY id DESC";
 $result = $conn->query($sql);
 
 // Check if there are results
@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
                             '{$row['time_consumed']}',
                             '{$row['nurse']}'
                         )\">View</a>
-                        <a href='#'>Discharge</a>
+                        <a href='function/discharge/discharge.php?id={$row['id']}' onclick='return confirm(\"Are you sure to DISCHARGE this patient?\");'>Discharge</a>
                     </div>
                 </div>
                 

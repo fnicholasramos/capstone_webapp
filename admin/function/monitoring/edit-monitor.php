@@ -36,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     // echo $sql; // Show the final SQL query for debugging
 
     if ($conn->query($sql) === TRUE) {
-        echo "Record updated.";
-        // header("Location: ../../monitoring.php");
+        // echo "Record updated.";
+        header("Location: ../../monitoring.php");
     } else {
         echo "Error updating record: " . $conn->error;
     }
