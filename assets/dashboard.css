@@ -5,11 +5,28 @@
     font-family: 'Montserrat';
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
 /* main container */
 .content {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    flex-grow: 1;
+    overflow-y: hidden;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* tier 1 */
@@ -18,7 +35,13 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: #007575;
-    width: 290px;
+    width: 250px;
+    height: 100%;
+}
+
+.landPage {
+    color: #e3e3e3; 
+    text-decoration: none; /* no underline */
 }
 
 .top {
@@ -106,7 +129,8 @@ a {
 }
 
 .info {
-    width: 100%;
+    flex-grow: 1;
+    height: 100%;
 }
 
 .copyright {
