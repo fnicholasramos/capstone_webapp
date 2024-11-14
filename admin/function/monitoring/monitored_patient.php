@@ -4,6 +4,9 @@ include 'db.php';
 
 // SQL query to select patient data
 $sql = "SELECT id, patient_name, iv_fluid_name, volume, flow_rate, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse FROM doc_orders ORDER BY id DESC";
+
+// $sql = "SELECT id, liter FROM iv_data";
+
 $result = $conn->query($sql);
 
 // Check if there are results
