@@ -45,10 +45,14 @@
                     <th style="text-align: left;">Date of Birth</th>
                     <th style="text-align: left;">Admit Date</th>
                     <th style="text-align: left;">Admit Time</th>
+                    <th style="text-align: left;">device_id</th>
+                    <th style="text-align: left;">Liter</th>
+                    <th style="text-align: left;">Percent</th>
                     <th>Actions</th>
+
                 </tr>
                 
-                <tbody>
+                <tbody id="real-time">
                     <?php include 'function/management/display_patient.php'; ?>
                 </tbody>
             </table>
@@ -63,6 +67,9 @@
             <span class="close">&times;</span>
             <h2 class="title">Add New Patient</h2>
                 <form action="function/management/add_patient.php" method="POST">
+                    <label for="device_id">Device ID:</label>
+                    <input type="text" id="device_id" name="device_id" required>    
+
                     <span class="inputs">Patient Name: <input type="text" name="name" placeholder="Ex. Ramon Gemaguim" required></span>
                     
                     <span class="inputs">Room Number: <input type="text" name="room" min="1" maxlength="4" inputmode="numeric" placeholder="Ex. 0001"  oninput="this.value = this.value.replace(/[^0-9]/g, '')" required ></span>
@@ -115,5 +122,8 @@
     <script src="../assets/modal/pop.js"></script>
     <script src="function/management/edit.js"></script>
     <script src="function/management/delete.js"></script>
+
+    <script src="function/management/real-time-updates.js"></script>
+
 </body>
 </html>
