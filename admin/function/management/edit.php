@@ -5,7 +5,7 @@ include '../../db.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];
     $patient_name = $_POST['patient_name'];
-    $room_number = $_POST['room_number'];
+    // $room_number = $_POST['room_number'];
     $date_of_birth = $_POST['date_of_birth'];
     $admit_date = $_POST['admit_date'];
     $admit_time = $_POST['admit_time'];
@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     // Prepare the SQL query to update patient data
     $sql = "UPDATE patient_management SET 
                 patient_name = '$patient_name', 
-                room_number = '$room_number', 
                 date_of_birth = '$date_of_birth', 
                 admit_date = '$admit_date', 
                 admit_time = '$admit_time' 
