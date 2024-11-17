@@ -14,8 +14,8 @@
     <div class="container">
         <div class="title">
             <div>
-                <a href="https://github.com/fnicholasramos/capstone_webapp"><img src="../assets/images/github.png" height="50px"></a>
-                <a href="https://www.facebook.com/or1equals1"><img src="../assets/images/fb-blue.png" height="50px"></a>
+                <a href="https://github.com/fnicholasramos/capstone_webapp" target="_blank"><img src="../assets/images/github.png" height="50px"></a>
+                <a href="https://www.facebook.com/or1equals1" target="_blank"><img src="../assets/images/fb-blue.png" height="50px"></a>
                 
             </div>
             
