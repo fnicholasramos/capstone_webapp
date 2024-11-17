@@ -39,12 +39,16 @@
                 </div>
 
                 <div class="fluid">
-                    <span>IV Fluid: 
-                        <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid" required><br><br>
-                        Volume:
-                        <input type="number" name="volume" placeholder="mL" min="0" class="inputs" required><br><br>
-                        Flow Rate:
-                        <input type="number" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3" required>
+                    <span>
+                        Room No: <input type="text" class="room" name="room" placeholder="Ex. 0001" required><br><br>
+
+                        Device ID: <input type="text" class="device" name="device" placeholder="Ex. pt0001" required><br><br>
+
+                        IV Fluid: <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid" required><br><br>
+
+                        Volume: <input type="number" name="volume" placeholder="mL" min="0" class="inputs" required><br><br>
+
+                        Flow Rate: <input type="number" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3" required>
                     </span>
                 </div>
 

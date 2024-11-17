@@ -36,14 +36,15 @@
                 <!-- header -->
                 <tr>
                     <th>Patient Name</th>
-                    <th>IV Fluid</th>
+                    <th>Room No.</th>
+                    <th>Device_id</th>
                     <th>Flow Rate (mL/h)</th>
                     <th>Volume Remaining (mL)</th>
-                    <th>Nurse</th>
+                    <th>Percent(%)</th>
                     <th>Actions</th>
                 </tr>
 
-                <tbody>
+                <tbody id="real-time">
                     <?php include 'function/monitoring/monitored_patient.php'; ?>
                 </tbody>
             </table>
@@ -61,10 +62,17 @@
                     <input type="hidden" name="id" id="editId">
                     <div class="selected">
                         <span>Patient Name: <input type="input" name="patientName" id="name"></span>
+                        
                     </div>
 
                     <div class="fluid">
-                        <span>IV Fluid:
+                        
+                        <span>
+                            Device ID: 
+                            <input type="text" name="device" class="inputs" id="device">
+                            Room No: 
+                            <input type="text" name="room" class="inputs" id="room"><br><br>
+                            IV Fluid:
                             <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid" id="iv_name"><br><br>
                             Volume:
                             <input type="number" name="volume" placeholder="L" min="0" class="inputs" id="volume"><br><br>
@@ -114,6 +122,7 @@
     <script src="function/monitoring/edit-monitor.js"></script>
     <script src="function/management/delete.js"></script>
     <script src="function/monitoring/buttons.js"></script>
+    <script src="function/monitoring/real-time-updates.js"></script>
 </body>
 
 </html>

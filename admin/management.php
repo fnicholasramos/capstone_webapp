@@ -41,13 +41,9 @@
                 <!-- header -->
                 <tr>
                     <th style="text-align: left;">Patient Name</th>
-                    <th style="text-align: left;">Room Number</th>
                     <th style="text-align: left;">Date of Birth</th>
                     <th style="text-align: left;">Admit Date</th>
                     <th style="text-align: left;">Admit Time</th>
-                    <th style="text-align: left;">device_id</th>
-                    <th style="text-align: left;">Liter</th>
-                    <th style="text-align: left;">Percent</th>
                     <th>Actions</th>
 
                 </tr>
@@ -67,12 +63,7 @@
             <span class="close">&times;</span>
             <h2 class="title">Add New Patient</h2>
                 <form action="function/management/add_patient.php" method="POST">
-                    <label for="device_id">Device ID:</label>
-                    <input type="text" id="device_id" name="device_id" required>    
-
                     <span class="inputs">Patient Name: <input type="text" name="name" placeholder="Ex. Ramon Gemaguim" required></span>
-                    
-                    <span class="inputs">Room Number: <input type="text" name="room" min="1" maxlength="4" inputmode="numeric" placeholder="Ex. 0001"  oninput="this.value = this.value.replace(/[^0-9]/g, '')" required ></span>
                     
                     <span class="inputs">Date of Birth: <input type="text" name="birth" placeholder="yyyy/mm/dd" required></span>
                     
@@ -95,8 +86,8 @@
                 <label for="patient_name">Patient Name:</label>
                 <input type="text" name="patient_name" id="editPatientName" required>
 
-                <label for="room_number">Room Number:</label>
-                <input type="text" name="room_number" id="editRoomNumber" required>
+                <!-- <label for="room_number">Room Number:</label>
+                <input type="text" name="room_number" id="editRoomNumber" required> -->
 
                 <label for="date_of_birth">Date of Birth:</label>
                 <input type="text" name="date_of_birth" id="editDateOfBirth" required>
@@ -123,7 +114,8 @@
     <script src="function/management/edit.js"></script>
     <script src="function/management/delete.js"></script>
 
-    <script src="function/management/real-time-updates.js"></script>
+
+
 
 </body>
 </html>
