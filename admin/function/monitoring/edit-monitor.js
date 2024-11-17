@@ -1,6 +1,7 @@
-function openEditModal(id, name, fluid_name, volume, flow_rate, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse) {
+function openEditModal(id, name, room, fluid_name, volume, flow_rate, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse, device) {
     document.getElementById('editId').value = id;
     document.getElementById('name').value = name;
+    document.getElementById('room').value = room;
     document.getElementById('iv_name').value = fluid_name;
     document.getElementById('volume').value = volume;
     document.getElementById('flowRate').value = flow_rate;
@@ -11,6 +12,7 @@ function openEditModal(id, name, fluid_name, volume, flow_rate, incorp, ivf_no, 
     document.getElementById('dateConsumed').value = date_consumed;
     document.getElementById('timeConsumed').value = time_consumed;
     document.getElementById('nurse').value = nurse;
+    document.getElementById('device').value = device;
 
     // Show the modal
     document.getElementById('editModal').style.display = 'block';

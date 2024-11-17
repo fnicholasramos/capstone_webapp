@@ -1,34 +1,32 @@
 function searchSuggestions() {
     const input = document.getElementById('searchInput').value;
+    const suggestionBox = document.getElementById('suggestionBox');
 
-    if (input === "") {
-        document.getElementById('suggestionBox').style.display = 'none';
+    if (input.trim() === '') {
+        suggestionBox.innerHTML = ''; // Clear suggestions if input is empty
         return;
     }
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'function/orders/search_suggestion.php?query=' + input, true);
-
-    // for large data set (sakila database)
-    //  xhr.open('GET', 'test_database.php?query=' + input, true); 
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const suggestionBox = document.getElementById('suggestionBox');
-            suggestionBox.innerHTML = xhr.responseText;
-
-            if (xhr.responseText) {
-                suggestionBox.style.display = 'block';
+    fetch(`function/orders/search_suggestion.php?query=${encodeURIComponent(input)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                suggestionBox.innerHTML = data
+                    .map(patient => `<div onclick="selectPatient('${patient.name}')">${patient.name}</div>`)
+                    .join('');
             } else {
-                suggestionBox.style.display = 'none';
+                suggestionBox.innerHTML = '<div>No results found</div>';
             }
-        }
-    };
-
-    xhr.send();
+        })
+        .catch(error => {
+            console.error('Error fetching suggestions:', error);
+            suggestionBox.innerHTML = '<div>Error fetching suggestions</div>';
+        });
 }
 
-function selectSuggestion(text) {
-    document.getElementById('searchInput').value = text;
-    document.getElementById('suggestionBox').style.display = 'none';
+function selectPatient(name) {
+    document.getElementById('searchInput').value = name;
+    document.getElementById('patientName').innerText = name;
+    document.getElementById('hiddenPatientName').value = name;
+    document.getElementById('suggestionBox').innerHTML = ''; // Clear the suggestion box
 }
