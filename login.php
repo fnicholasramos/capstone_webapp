@@ -6,11 +6,9 @@
     <title>Login</title>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="assets/prompt.css">
-
-    <link rel="icon" href="https://jrrmmc.gov.ph/images/Logos/official-logo-PNG.png">
     
     <!-- Inter font -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..    32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
@@ -22,14 +20,14 @@
 <body>
     <div class="main">
         <div class="dash">
-            <img src="assets/images/onm.jpg" class="dashImage">
+            <img src="assets/images/main.png" class="dashImage">
         </div>
 
         <div class="rightLogin">
             <div class="top">
-                <img src="assets/images/onm_logo.png" alt="logo" height="78px" width="auto" class="logo">
+                <img src="assets/images/iv_bag.png" alt="logo" height="85px" width="auto" class="logo">
 
-                <span class="jrrmc">Ospital ng Maynila Medical Center</span>
+                <span class="jrrmc">Health Guard IV Bag Monitoring System</span>
             </div>
 
             <div class="login">
@@ -44,7 +42,7 @@
                         </div>
                         
                         <div class="buttons">
-                            <a href="https://example.com" class="forgot">Forgot Password?</a>
+                            <a href="forgot.php" class="forgot">Forgot Password?</a>
                             <button type="input">Login</button>
                         </div>
                         
@@ -72,45 +70,10 @@
 
 
     <script>
-    // JavaScript to disable form and display countdown timer
-    document.addEventListener('DOMContentLoaded', function() {
-        <?php if ($_SESSION['attempts'] >= 3): ?>
-            disableForm();
-            // Pass the remaining lockout time to JavaScript from PHP
-            startCountdown(<?php echo max(0, 30 - (time() - $_SESSION['lockout_time'])); ?>);
-        <?php endif; ?>
-    });
-
-    function disableForm() {
-        document.getElementById("loginForm").querySelectorAll("input, button").forEach(element => {
-            element.disabled = true;
-        });
-    }
-
-    function startCountdown(duration) {
-        const countdownMessage = document.getElementById("countdownMessage");
-        countdownMessage.style.display = 'block';
-
-        let remainingTime = duration;
-
-        const interval = setInterval(() => {
-            countdownMessage.textContent = "Too many attempts. Try again in " + remainingTime + " seconds.";
-
-            if (remainingTime <= 0) {
-                clearInterval(interval);
-                countdownMessage.style.display = 'none';
-                enableForm();
-            }
-            remainingTime--;
-        }, 1000);
-    }
-
-    function enableForm() {
-        document.getElementById("loginForm").querySelectorAll("input, button").forEach(element => {
-            element.disabled = false;
-        });
-    }
-</script>
+        window.attempts = <?php echo $_SESSION['attempts']; ?>;
+        window.lockoutTime = <?php echo max(0, 30 - (time() - $_SESSION['lockout_time'])); ?>;
+    </script>
+    <script src="assets/error_countdown.js"></script>
 
 </body>
 </html>
