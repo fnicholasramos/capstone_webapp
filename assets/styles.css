@@ -67,7 +67,7 @@ body {
 }
 
 .top, .logo{
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 
@@ -159,6 +159,8 @@ input {
     font-size: 14px;
     color: #a1a1a1;
 }
+
+
 
 /* mobile view  */
 

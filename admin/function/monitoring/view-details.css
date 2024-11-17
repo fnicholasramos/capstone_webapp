@@ -97,7 +97,11 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-.iv_fluid {
+.iv_fluid{
+    width: 150px;
+}
+
+.room {
     width: 150px;
 }
 
@@ -107,6 +111,14 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .inputs {
+    width: 150px;
+}
+
+.device {
+    width: 150px;
+} 
+
+.room {
     width: 150px;
 }
 
