@@ -1,7 +1,6 @@
-function openEditModal(id, name, room, dob, admitDate, admitTime) {
+function openEditModal(id, name, dob, admitDate, admitTime) {
     document.getElementById('editId').value = id;
     document.getElementById('editPatientName').value = name;
-    document.getElementById('editRoomNumber').value = room;
     document.getElementById('editDateOfBirth').value = dob;
     document.getElementById('editAdmitDate').value = admitDate;
     document.getElementById('editAdmitTime').value = admitTime;
