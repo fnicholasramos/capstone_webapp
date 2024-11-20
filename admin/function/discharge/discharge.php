@@ -27,15 +27,15 @@ if (isset($_GET['id'])) {
 
         if ($conn->query($insert_sql) === TRUE) {
 
-            header("Location: ../../discharged.php");
+            // header("Location: ../../discharged.php");
 
             // Delete the record from `doc_orders`
-            // $delete_sql = "DELETE FROM doc_orders WHERE id = $id";
-            // if ($conn->query($delete_sql) === TRUE) {
-            //     header("Location: ../../discharged.php");
-            // } else {
-            //     echo "Error deleting record: " . $conn->error;
-            // }
+            $delete_sql = "DELETE FROM doc_orders WHERE id = $id";
+            if ($conn->query($delete_sql) === TRUE) {
+                header("Location: ../../discharged.php");
+            } else {
+                echo "Error deleting record: " . $conn->error;
+            }
         } else {
             echo "Error inserting record into discharge: " . $conn->error;
         }
