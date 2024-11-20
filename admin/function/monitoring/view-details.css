@@ -97,6 +97,23 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.border_answer {
+    margin-left: 3px;
+    color: #1900ff;
+}
+
+.drop_factor, .minutes {
+    width: 150px;
+}
+
+.drop_factor::placeholder {
+    text-align: right;
+}
+
+.minutes::placeholder {
+    text-align: right;
+}
+
 .iv_fluid{
     width: 150px;
 }
