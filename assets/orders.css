@@ -42,6 +42,14 @@ u {
     border-radius: 8px;
 }
 
+.room, .device {
+    width: 130px;
+}
+
+.room {
+    margin-right: 10px;
+}
+
 .input_container h3 {
     text-align: center;
     margin-bottom: 25px;
@@ -84,18 +92,35 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.border_answer {
+    margin-left: 3px;
+    color: #1900ff;
+}
+
+.drop_factor, .minutes {
+    width: 150px;
+}
+
+.drop_factor::placeholder {
+    text-align: right;
+}
+
+.minutes::placeholder {
+    text-align: right;
+}
+
 .iv_fluid {
     width: 150px;
 }
 
 .iv_fluid::placeholder {
     text-align: left;
-    
 }
 
 .inputs {
     width: 150px;
 }
+
 
 .inputs::placeholder {
     text-align: right;
