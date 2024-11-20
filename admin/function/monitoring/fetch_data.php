@@ -5,7 +5,24 @@ include '../../db.php';
 
 // do.device_id, do.room_number,
 
-$sql = "SELECT do.id, do.patient_name, do.room_number, do.iv_fluid_name, do.volume, do.flow_rate, do.incorp, do.ivf_no, do.date_started, do.time_started, do.date_consumed, do.time_consumed, do.nurse, do.device_id,
+$sql = "SELECT do.id, 
+               do.patient_name, 
+               do.device_id, 
+               do.room_number, 
+               do.iv_fluid_name, 
+               do.volume, 
+               do.flow_rate, 
+               do.answer, 
+               do.drop_factor,
+               do.minutes,
+               do.drip_rate_answer,
+               do.incorp, 
+               do.ivf_no, 
+               do.date_started, 
+               do.time_started, 
+               do.date_consumed, 
+               do.time_consumed, 
+               do.nurse, 
 
                iv.device_id, iv.liter, iv.percent 
         FROM doc_orders do 

@@ -3,7 +3,24 @@
 include 'db.php';
 
 // Join table "iv_data"
-$sql = "SELECT do.id, do.patient_name,  do.room_number, do.flow_rate, do.nurse, do.iv_fluid_name, do.volume, do.incorp, do.ivf_no, do.date_started, do.time_started, do.date_consumed, do.time_consumed, do.nurse, do.device_id,
+$sql = "SELECT do.id, 
+               do.patient_name, 
+               do.device_id, 
+               do.room_number, 
+               do.iv_fluid_name, 
+               do.volume, 
+               do.flow_rate, 
+               do.answer, 
+               do.drop_factor,
+               do.minutes,
+               do.drip_rate_answer,
+               do.incorp, 
+               do.ivf_no, 
+               do.date_started, 
+               do.time_started, 
+               do.date_consumed, 
+               do.time_consumed, 
+               do.nurse, 
 
                iv.device_id, iv.liter, iv.percent  
         FROM doc_orders do 
@@ -34,6 +51,12 @@ if ($result && $result->num_rows > 0) {
                             '{$row['iv_fluid_name']}',
                             '{$row['volume']}',
                             '{$row['flow_rate']}',
+
+                            '{$row['drop_factor']}',
+                            '{$row['minutes']}',
+                            '{$row['drip_rate_answer']}',
+
+
                             '{$row['incorp']}',
                             '{$row['ivf_no']}',
                             '{$row['date_started']}',
@@ -42,6 +65,7 @@ if ($result && $result->num_rows > 0) {
                             '{$row['time_consumed']}',
                             '{$row['nurse']}',
                             '{$row['device_id']}'
+                            
                         )\">View</a>
                         <a href='function/discharge/discharge.php?id={$row['id']}' onclick='return confirm(\"Are you sure to DISCHARGE this patient?\");'>Discharge</a>
                     </div>
