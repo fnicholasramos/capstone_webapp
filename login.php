@@ -17,6 +17,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
+<style>
+    .display-none {
+        display: none;
+    }
+</style>
+
+
 <body>
     <div class="main">
         <div class="dash">
@@ -42,7 +50,10 @@
                         </div>
                         
                         <div class="buttons">
-                            <a href="forgot.php" class="forgot">Forgot Password?</a>
+                            <div class="links">
+                                <a href="admin/function/forms/create.php" id="account-link" class="forgot">Don't have an account?</a>
+                                <a href="forgot.php" class="forgot">Forgot Password?</a>
+                            </div>
                             <button type="input">Login</button>
                         </div>
                         
@@ -72,6 +83,22 @@
     <script>
         window.attempts = <?php echo $_SESSION['attempts']; ?>;
         window.lockoutTime = <?php echo max(0, 30 - (time() - $_SESSION['lockout_time'])); ?>;
+
+        // check user count
+        window.onload = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'admin/function/forms/check_user_count.php', true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var create = xhr.responseText; // Get the response (the class name)
+                var accountLink = document.getElementById('account-link');
+                if (create) {
+                    accountLink.classList.add(create); // Add the class to hide the link
+                }
+            }
+        };
+        xhr.send();
+    };
     </script>
     <script src="assets/error_countdown.js"></script>
 
