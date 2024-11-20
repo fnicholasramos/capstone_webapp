@@ -40,15 +40,30 @@
 
                 <div class="fluid">
                     <span>
-                        Room No: <input type="text" class="room" name="room" placeholder="Ex. 0001" required><br><br>
+                        Room No: <input type="text" name="room" placeholder="Ex. 0001" class="room" required>
 
-                        Device ID: <input type="text" class="device" name="device" placeholder="Ex. pt0001" required><br><br>
+                        Device ID: <input type="text" name="device" placeholder="Ex. pt0001" class="device" required><br><br>
 
                         IV Fluid: <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid" required><br><br>
+                        
+                        
+                        Flow Rate: 
+                        <!-- Volume --> 
+                        <input type="number" id="volume" name="volume" placeholder="mL" min="0" class="inputs" required> /
+                        <!-- Hours -->
+                        <input type="number" id="flow_rate" name="flow_rate" placeholder="hour" min="0" class="inputs flowr3" required>
 
-                        Volume: <input type="number" name="volume" placeholder="mL" min="0" class="inputs" required><br><br>
+                        = <span id="answer" class="second_flow_rate"></span>
+                        <input type="hidden" id="hidden_answer" name="answer"><br><br>
 
-                        Flow Rate: <input type="number" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3" required>
+                        Drip Rate: 
+                        <span class="second_flow_rate border_answer"></span> x
+                        <input type="number" name="drop_factor" id="drop_factor" class="drop_factor" placeholder="Drop Factor" required> /
+                        <input type="number" name="minutes" id="minutes" class="minutes" placeholder="Ex. 60mins"> =
+                        <span class="drip_rate_answer"></span>
+                        <input type="hidden" id="drip_rate_answer" class="drip_rate_answer" name="drip_rate_answer">
+                        <span id="drip_rate_display" class="drip_rate_display"></span>
+
                     </span>
                 </div>
 
@@ -90,6 +105,8 @@
     <script src="function/orders/search_suggestion.js"></script>
     <script src="function/orders/insert_result.js"></script>
     <script src="function/orders/patient_name.js"></script>
+    <script src="function/orders/calculate_flowrate.js"></script>
+
     
 </body>
 </html>

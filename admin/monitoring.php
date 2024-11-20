@@ -37,10 +37,12 @@
                 <tr>
                     <th>Patient Name</th>
                     <th>Room No.</th>
-                    <th>Device_id</th>
+                    <th>Device ID</th>
                     <th>Flow Rate (mL/h)</th>
+                    <th>Drip Rate</th>
                     <th>Volume Remaining (mL)</th>
                     <th>Percent(%)</th>
+                    <th>Nurse</th>
                     <th>Actions</th>
                 </tr>
 
@@ -74,10 +76,24 @@
                             <input type="text" name="room" class="inputs" id="room"><br><br>
                             IV Fluid:
                             <input type="text" name="iv_fluid" min="0" placeholder="Name of IVF" class="iv_fluid" id="iv_name"><br><br>
-                            Volume:
-                            <input type="number" name="volume" placeholder="L" min="0" class="inputs" id="volume"><br><br>
-                            Flow Rate:
-                            <input type="number" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3" id="flowRate">
+
+                            Flow Rate: 
+                            <!-- Volume -->
+                            <input type="number" id="volume" name="volume" placeholder="L" min="0" class="inputs"> /
+                            <!-- Hours -->
+                            <input type="number" id="flow_rate" name="flow_rate" placeholder="cc/hr" min="0" class="inputs flowr3">
+                            = <span id="answer" class="second_flow_rate"></span>
+                            <input type="hidden" id="hidden_answer" name="answer"><br><br>
+
+
+                            <!-- Drip rate  -->
+                            Drip Rate: 
+                            <span class="second_flow_rate border_answer"></span> x
+                            <input type="number" name="drop_factor" id="drop_factor" class="drop_factor" placeholder="Drop Factor" required> /
+                            <input type="number" name="minutes" id="minutes" class="minutes" placeholder="Ex. 60mins"> =
+                            <span class="drip_rate_answer"></span>
+                            <input type="hidden" id="drip_rate_answer" class="drip_rate_answer" name="drip_rate_answer">
+                            <span id="drip_rate_display" class="drip_rate_display"></span>
                         </span>
                     </div>
 
