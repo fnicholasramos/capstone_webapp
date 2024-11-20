@@ -1,32 +1,31 @@
 function searchSuggestions() {
     const input = document.getElementById('searchInput').value;
-    const suggestionBox = document.getElementById('suggestionBox');
 
-    if (input.trim() === '') {
-        suggestionBox.innerHTML = ''; // Clear suggestions if input is empty
+    if (input === "") {
+        document.getElementById('suggestionBox').style.display = 'none';
         return;
     }
 
-    fetch(`function/orders/search_suggestion.php?query=${encodeURIComponent(input)}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                suggestionBox.innerHTML = data
-                    .map(patient => `<div onclick="selectPatient('${patient.name}')">${patient.name}</div>`)
-                    .join('');
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'function/orders/search_suggestion.php?query=' + encodeURIComponent(input), true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const suggestionBox = document.getElementById('suggestionBox');
+            suggestionBox.innerHTML = xhr.responseText;
+            if (xhr.responseText.trim()) {
+                suggestionBox.style.display = 'block';
             } else {
+                suggestionBox.style.display = 'none';
                 suggestionBox.innerHTML = '<div>No results found</div>';
             }
-        })
-        .catch(error => {
-            console.error('Error fetching suggestions:', error);
-            suggestionBox.innerHTML = '<div>Error fetching suggestions</div>';
-        });
+        }
+    };
+    xhr.send();
 }
 
+// Move this function outside of `searchSuggestions`
 function selectPatient(name) {
     document.getElementById('searchInput').value = name;
-    document.getElementById('patientName').innerText = name;
-    document.getElementById('hiddenPatientName').value = name;
     document.getElementById('suggestionBox').innerHTML = ''; // Clear the suggestion box
+    document.getElementById('suggestionBox').style.display = 'none'; // Hide the suggestion box
 }
