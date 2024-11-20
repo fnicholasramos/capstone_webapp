@@ -12,20 +12,23 @@
 </head>
 <body>
     <div class="container">
-        <div class="title">
-            <div>
-                <a href="https://github.com/fnicholasramos/capstone_webapp" target="_blank"><img src="../assets/images/github.png" height="50px"></a>
-                <a href="https://www.facebook.com/or1equals1" target="_blank"><img src="../assets/images/fb-blue.png" height="50px"></a>
+        <div class="top-bar">
+            <div class="title">
+                <div class="logo">
+                    <a href="https://www.facebook.com/or1equals1" target="_blank"><img src="../assets/images/fb-blue.png" height="50px" class="logos"></a>
+                    <a href="https://paterostechnologicalcollege.edu.ph/" target="_blank"><img src="../assets/images/ptc.png" height="52px" class="logos"></a>
+                    <a href="https://github.com/fnicholasramos/capstone_webapp" target="_blank"><img src="../assets/images/github.png" height="50px" class="logos"></a> 
+                </div>
                 
-            </div>
-            
-            <div class="important">
-                <p class="onm">Report technical problem</p>
-                <p class="location">GitHub Repository</p>
-                <p class="email">pfrancisnicholas@gmail.com</p>
-            </div>
-            
-        </div>    
+                <div class="important">
+                    <p class="onm">Report technical problem</p>
+                    <p class="email">Pateros Technological College</p>
+                    <p class="location">GitHub Repository</p>
+                </div>
+                
+            </div> 
+        </div>   
+
 
         <div class="overview">
             <div class="text">

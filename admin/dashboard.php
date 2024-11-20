@@ -74,7 +74,7 @@
 
             <!-- logout -->
             <div class="logout">
-                <form action="function/login/logout.php" method="POST">
+                <form action="function/login/logout.php" method="POST" id="logoutForm" onsubmit="confirmLogout(event)">
                     <button class="out">
                         <span><img src="../assets/images/logout.png" height="40px">
                         Logout</span>
@@ -94,6 +94,7 @@
 
     <script src="../assets/digital_clock.js"></script>
     <script src="../assets/mobile_slidebar.js"></script>
+    <script src="function/login/confirm_logout.js"></script>
     
 </body>
 </html>
