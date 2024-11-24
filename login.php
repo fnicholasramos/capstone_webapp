@@ -6,6 +6,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="assets/prompt.css">
+    <link rel="icon" href="assets/images/iv_bag.png">
     
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
