@@ -67,7 +67,7 @@
                     
                     <span class="inputs">Date of Birth: <input type="text" name="birth" placeholder="yyyy/mm/dd" required></span>
                     
-                    <span class="inputs">Admit Date and Time: <input type="text" name="admit_date" placeholder="yyyy/mm/dd" class="date" required> <input type="text" name="admit_time" placeholder="hh:mm:ss" class="time" required></span>
+                    <span class="inputs">Admit Date and Time: <input type="text" name="admit_date" placeholder="yyyy/mm/dd" class="date" required> <input type="text" name="admit_time" placeholder="hh:mm" class="time" required></span>
                 
                     <button type="submit" class="submit">Add Patient</button> <br>
                     <button type="button" class="cancel" id="cancel">Cancel</button>

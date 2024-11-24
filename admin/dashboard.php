@@ -8,7 +8,7 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="../assets/dashboard.css">
     <link rel="stylesheet" href="../assets/digital_clock.css">
-    <link rel="icon" href="https://jrrmmc.gov.ph/images/Logos/official-logo-PNG.png">
+    <link rel="icon" href="../assets/images/iv_bag.png">
     
     <!-- Montserrat font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
