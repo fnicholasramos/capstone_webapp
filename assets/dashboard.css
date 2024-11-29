@@ -52,7 +52,7 @@ iframe {
     font-weight: 700;
     color: #e4e4e4;
     margin-top: 15px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     margin-left: -5px;
 } 
 
@@ -82,8 +82,16 @@ li:hover {
     margin: 0;
 }
 
+.priv, .presc {
+    margin-left: 5px;
+}
 
-.ramon {
+.prescription {
+    margin-right: 17px;
+}
+
+
+.navs {
     margin-bottom: 30px;
 }
 
@@ -217,7 +225,7 @@ a {
         left: 0;
     }
 
-    .ramon {
+    .navs {
         margin-bottom: 10px;
     }
 

@@ -48,7 +48,14 @@ body {
     font-size: 12px;
     font-weight: 900;
     color: #494949;
+}
+
+.modify-user {
     margin-bottom: 15px;
+}
+
+.editInfo {
+    text-align: center;
 }
 
 input, button {
@@ -57,7 +64,10 @@ input, button {
 }
 
 input {
-    padding: 2px 2px 2px 4px;
+    height: 20px;
+    padding: 2px 2px 2px 5px;
+    margin-bottom: 7px;
+    font-size: 17px;
 }
 
 .save {
@@ -261,6 +271,9 @@ li {
     padding: 10px 10px 10px 15px;
 }
 
-
+.admin_forms {
+    display:flex;
+    justify-content: right;
+}
 
 
