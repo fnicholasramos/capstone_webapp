@@ -18,4 +18,4 @@ This project is created and will be part of [Jose R. Reyes Memorial Medical Cent
     - Open a browser and go to http://localhost/phpmyadmin.
     - Create a new database name `capstone` then import the SQL file provided 
 6. Browse to [http://localhost/capstone/](http://localhost/capstone/) 
-7. Login `admin:jenkins1`
+7. Login `admin:jenkins1`, `user1:user1234`, `user2:user4321`
