@@ -1,5 +1,4 @@
 <?php include 'function/login/session.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,21 +37,31 @@
                 
                 <div class="list" id="list">
                     <ul>
-                        <div class="ramon">
-                            <a href="../admin/orders.php" target="frame"><li><span class="doc"><img src="../assets/images/pin.png" height="40px" class="icon">Doctor's Orders Input</span></li></a>
+                        <div class="navs">
+                            <a href="../admin/orders.php" target="frame"><li><span class="doc"><img src="../assets/images/pin.png" height="40px" class="icon">Doctor's Order</span></li></a>
+                        </div>
+
+                        <div class="navs">
+                            <a href="" target="frame"><li><span class="doc presc"><img src="../assets/images/list.png" height="30px" class="icon prescription">Prescription</span></li></a>
                         </div>
                         
-                        <div class="ramon">
+                        <div class="navs">
                             <a href="../admin/monitoring.php" target="frame"><li><span class="doc"><img src="../assets/images/teacher.png" height="40px" class="icon"></span>Patient Monitoring</li></a>
                         </div>
                         
-                        <div class="ramon">
+                        <div class="navs">
                             <a href="../admin/management.php" target="frame"><li><span class="doc"><img src="../assets/images/person.png" height="40px" class="icon"></span>Patient Management</li></a>
                         </div>
 
-                        <div class="ramon">
+                        <div class="navs">
                             <a href="../admin/discharged.php" target="frame"><li><span class="doc"><img src="../assets/images/door-open.png" height="30px" class="icon"></span>Discharged Patients</li></a>
                         </div>
+
+                        <?php if (isset($_SESSION['privilege']) && $_SESSION['privilege'] === 'admin'): ?>
+                        <div class="navs">
+                            <a href="../admin/edit-privilege.php" target="frame"><li><span class="doc priv"><img src="../assets/images/admin.png" height="30px" class="icon"></span>User Privilege</li></a>
+                        </div>
+                        <?php endif; ?>
                     </ul>
 
                     <div class="logout-mobile">
