@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2024 at 03:52 PM
+-- Generation Time: Nov 29, 2024 at 05:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,7 +78,7 @@ CREATE TABLE `doc_orders` (
 --
 
 INSERT INTO `doc_orders` (`id`, `patient_name`, `room_number`, `iv_fluid_name`, `volume`, `flow_rate`, `answer`, `drop_factor`, `minutes`, `drip_rate_answer`, `incorp`, `ivf_no`, `date_started`, `time_started`, `date_consumed`, `time_consumed`, `nurse`, `device_id`) VALUES
-(1, 'Juan Dela Cruz', '0001', 'Saline', 1000, 9, '111', '20', '60', '37.00', '', '1', '2024-11-10', '11:21pm', '2024-11-10', '12:21pm', 'Sophia Nicole Macam', 'pt0001');
+(1, 'Juan Dela Cruz', '0001', 'Saline', 1000, 8, '125', '20', '50', '50.00', '', '1', '2024-11-10', '11:21pm', '2024-11-10', '12:21pm', 'Sophia Nicole Macam', 'pt0001');
 
 -- --------------------------------------------------------
 
@@ -99,7 +99,7 @@ CREATE TABLE `iv_data` (
 --
 
 INSERT INTO `iv_data` (`device_id`, `liter`, `percent`, `flow_rate_sensor`, `time`) VALUES
-('pt0001', 0, 0, 0, '2024-11-24 14:30:11'),
+('pt0001', 0, 0, 0, '2024-11-29 15:05:58'),
 ('pt0002', 0, 0, 0, '2024-11-17 17:25:24');
 
 -- --------------------------------------------------------
@@ -136,6 +136,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `privilege` varchar(10) NOT NULL,
   `email` varchar(255) NOT NULL,
   `token` varchar(64) NOT NULL,
   `expires_at` datetime DEFAULT NULL
@@ -145,10 +146,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `token`, `expires_at`) VALUES
-(1, 'admin', '$2y$10$QuexlpREzqCXegm.Xfc6MuSAQwleNMVwmpyHlGDnZc31HjVbmx1WG', 'ramosnicholas75@gmail.com', '215b2b0b8ec5600011cd0b9cd97f33b4b52a864d55b59bc2329ae274ea3922f6', '2024-11-17 13:59:03'),
-(12, 'ramon', '$2y$10$WAi7HWYEAYFcSf7Sz57zJ.pYtcJaV0hSL.mvLJfe5m1kY9uyBimVa', 'gemaguimr@gmail.com', '', NULL),
-(13, 'edsel', '$2y$10$caGqQKoS5QfhvpPeuWV7YuXwAAQ2EXnJknDIV9rlhaMpYPPO6tZa6', 'edselnasol2@gmail.com', '', NULL);
+INSERT INTO `users` (`id`, `username`, `password`, `privilege`, `email`, `token`, `expires_at`) VALUES
+(1, 'admin', '$2y$10$tI0fOIjB16IVJOEX0gU3ouOze8dxrp57R0/40qzWFsgcgNErmHdHK', 'admin', 'ramosnicholas75@gmail.com', '', NULL),
+(22, 'user1', '$2y$10$lRyVVkQGtjbucjGGMoWOneyl1d26hPldmZyMXw9Cln4zUfbRNdEz.', 'user', 'user1@gmail.com', '', NULL),
+(23, 'user2', '$2y$10$Qj0NYowRUwoYrEOskI1NNOWACohLSwHLUFqWD4uLj3N7hP0GW8Q82', 'user', 'user2@gmail.com', '', NULL);
 
 --
 -- Indexes for dumped tables
@@ -210,7 +211,7 @@ ALTER TABLE `patient_management`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
