@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $username = htmlspecialchars($_POST['username']);
     $password = $_POST['password'];
+    $privilege = "user"; //Default role for system
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         sendErrorBack("Invalid email format");
@@ -24,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (email, username, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users (email, username, password, privilege) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $email, $username, $hashedPassword);
+    $stmt->bind_param("ssss", $email, $username, $hashedPassword, $privilege);
 
     if ($stmt->execute()) {
         header("Location: ../../../login.php");
