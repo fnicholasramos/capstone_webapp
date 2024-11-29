@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 500px;
+    margin: 20px 0 0 20px;
+}
+
+select {
+    border: none;
+    font-size: 15px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders are clean and merged */
+}
+
+th {
+    border-bottom: 2px solid black; /* Straight thick border under table headers */
+    padding: 10px;
+    text-align: center; /* Centers the text */
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid gray; /* Optional: border for table rows */
+}
+
+.user {
+    font-size: 15px;
+}
+
+.update-btn {
+    color: #fff;
+    padding: 5px;
+    border: hidden;
+    border-radius: 3px;
+    background-color: #16a2b8;
+}
+
+.update-btn:hover {
+    background-color: #148192;
+    cursor: pointer;
+}
+
+
+.delete-btn {
+    margin-left: 7px;
+    color: #fff;
+    padding: 5px;
+    border: hidden;
+    border-radius: 3px;
+    background-color: #db3545;
+}
+
+.delete-btn:hover {
+    background-color: #ac2a37;
+    cursor: pointer;
+}
+
+
