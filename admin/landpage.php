@@ -1,4 +1,28 @@
 <?php include 'update_user.php';?>
+
+<?php
+// Ensure the session is started
+session_start();
+
+// Check if the user is logged in
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    // Fetch the user id from the session if available
+    if (isset($_SESSION['user_id'])) {
+        $userId = $_SESSION['user_id'];  // Assuming user_id is stored in the session
+    } elseif (isset($_GET['user_id'])) {
+        $userId = $_GET['user_id'];  // Fetch the user_id from the URL if passed as a GET parameter
+    } else {
+        $userId = null;  // Default to null if no user_id is found
+    }
+} else {
+    $userId = null;  // Default to null if not logged in
+}
+
+// Debugging: Check if userId is set
+// var_dump($userId);  // This will display the value of $userId to debug
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,45 +58,43 @@
                 
             </div> 
 
+            
+
             <div class="main">
                 <a href="#" class="user-edit" id="user-edit-link">
                     <img src="../assets/images/clean-user-grey.png" height="60px" class="user-icon">
                 </a>
-                <span class="current-user" id="current-user"></span>
+                <span class="current-user" id="current-user">
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                        echo htmlspecialchars($_SESSION['username']);
+                    } else {
+                        echo "Guest"; // Default text if no user is logged in
+                    }
+                    ?>
+                </span>
             </div>
-
+            
             <!-- Hidden edit form -->
              <div class="modify-user" id="edit-form-container" style="display: none;">
-                <form method="GET" action="">
-                    <label for="user_id">Choose a user to update:</label>
-                    <select name="user_id" id="user_id" onchange="this.form.submit()">
-                        <option value="">--Select User--</option>
-                        <?php
-                        while ($row = $result->fetch_assoc()) {
-                            $selected = (isset($_GET['user_id']) && $_GET['user_id'] == $row['id']) ? 'selected' : '';
-                            echo "<option value='{$row['id']}' $selected>{$row['username']}</option>";
-                        }
-                        ?>
-                    </select>
-                </form>
-
+                <h3 class="editInfo">Edit User Information</h3>
                 <!-- Display and edit user info -->
                 <?php if (isset($currentUsername)): ?>
-                    <form method="POST" action="">
-                        <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
+                    <form action="update_user.php" method="POST" onsubmit="confirmChanges()">
+                        <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($userId); ?>">
 
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" value="<?php echo $currentUsername; ?>" required><br>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($currentUsername); ?>" required>
 
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" value="<?php echo $currentEmail; ?>" required><br>
-
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($currentEmail); ?>" required>
+                        
                         <button type="submit" class="save" name="update">Save Changes</button>
                         <button type="button" id="cancel-edit" class="cancel">Cancel</button>
                     </form>
-                <?php endif; ?>       
-
+                <?php endif; ?>
              </div>
+
            
         </div>   
 
@@ -158,6 +180,15 @@
         currentUserSpan.innerText = newUsername;  // Update the current username
         editFormContainer.style.display = 'none';  // Hide the form after saving
     });
+</script>
+
+<script>
+    function confirmChanges(event) {
+    const userConfirmed = confirm("Do you want to save changes?");
+    if (!userConfirmed) {
+        event.preventDefault();
+    }
+}
 </script>
 </body>
 </html>
