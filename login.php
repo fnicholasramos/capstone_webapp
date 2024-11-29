@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,10 +77,6 @@
             </div>
         </div>
     </div>
-
-    <!-- mobile view -->
-
-
 
     <script>
         window.attempts = <?php echo $_SESSION['attempts']; ?>;
