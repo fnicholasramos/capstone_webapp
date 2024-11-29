@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
              . '</div>';
     }
 } else {
-    echo '<div class="suggestion-item">No results found</div>';
+    echo '<div class="suggestion-item" style="color: red;">No results found</div>';
 }
 
 $stmt->close();
