@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'admin/db.php';
 
 $error_message = "";
@@ -50,7 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $_SESSION['attempts'] < 3) {
 
             // Start session and set session variables
             $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];   
             $_SESSION['loggedin'] = true;
+            $_SESSION['user_id'] = $user['id'];
+
+            // Retrieve the user's privilege/role
+            $_SESSION['privilege'] = $user['privilege'];  // Store the privilege in session
 
             // Reset login attempts on successful login
             $_SESSION['attempts'] = 0;

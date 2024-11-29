@@ -18,16 +18,21 @@ if (isset($_SESSION['last_activity'])) {
     
     if ($elapsedTime > $timeoutDuration) {
         // Destroy the session and redirect to login page if timeout is reached
-        
         session_unset();
         session_destroy();
         
         header("Location: /capstone");
-        echo "<div class='prompt'>TEST</div>";
         exit;
     }
 }
 
 // Update last activity timestamp
 $_SESSION['last_activity'] = time();
+
+// Set access control based on role
+if ($_SESSION['privilege'] !== 'admin') {
+    $_SESSION['hide_user_privilege'] = true; // Hide the User Privilege link for non-admin users
+} else {
+    $_SESSION['hide_user_privilege'] = false; // Show User Privilege for admins
+}
 ?>
