@@ -6,6 +6,10 @@ function fetchRealTimeData() {
             tableBody.innerHTML = ''; // Clear existing rows
 
             data.forEach(row => {
+                const dischargeLink = (userPrivilege === 'admin') 
+                    ? `<a href="function/discharge/discharge.php?id=${row.id}" onclick='return confirm("Are you sure to DISCHARGE this patient?");'>Discharge</a>`
+                    : '';
+
                 const rowHtml = `
                     <tr>
                         <td>${row.patient_name}</td>
@@ -43,7 +47,7 @@ function fetchRealTimeData() {
                                         '${row.nurse}',
                                         '${row.device_id}'
                                     )">View</a>
-                                     <a href="function/discharge/discharge.php?id=${row.id}" onclick='return confirm("Are you sure to DISCHARGE this patient?");'>Discharge</a>
+                                    ${dischargeLink}
                                 </div>
                             </div>
                         </td>
@@ -61,4 +65,3 @@ function fetchRealTimeData() {
 setInterval(fetchRealTimeData, 2000); // Fetch every 1 second for real-time updates
 // Initial load
 fetchRealTimeData();
-
