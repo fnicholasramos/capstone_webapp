@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2024 at 04:08 PM
+-- Generation Time: Nov 30, 2024 at 08:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,7 +47,8 @@ INSERT INTO `discharge` (`id`, `patient_name`, `iv_fluid`, `admission_date`, `ad
 (19, 'Ramon G. Gemaguim', 'Saline', '2024-11-10', '11:22pm', '2024-11-24', '06:50 PM', 2, ''),
 (20, 'Francis Nicholas P. Ramos', 'Saline', '2024-11-24', '10:13pm ', '2024-11-24', '10:15 PM', 1, ''),
 (21, 'Megan Griffin', 'Dark Elixir', '2024-11-30', '7:26pm', '2024-11-30', '08:36 PM', 1, 'Peter Griffin'),
-(22, 'Juan Dela Cruz', 'Saline', '2024-11-10', '11:21pm', '2024-11-30', '08:37 PM', 1, 'Sophia Nicole Macam');
+(22, 'Juan Dela Cruz', 'Saline', '2024-11-10', '11:21pm', '2024-11-30', '08:37 PM', 1, 'Sophia Nicole Macam'),
+(23, 'Test', 'Dark Elixir', '2024-12-01', '10:34pm', '2024-12-01', '02:21 AM', 1, 'Justin Bieber');
 
 -- --------------------------------------------------------
 
@@ -102,21 +103,21 @@ CREATE TABLE `iv_data` (
 --
 
 INSERT INTO `iv_data` (`device_id`, `liter`, `percent`, `time`) VALUES
-('pt0001', 0, 0, '2024-11-30 14:21:22'),
+('pt0001', 0, 0, '2024-11-30 18:22:35'),
 ('pt0002', 0, 0, '2024-11-17 17:25:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `iv_data_history`
+-- Table structure for table `iv_history`
 --
 
-CREATE TABLE `iv_data_history` (
+CREATE TABLE `iv_history` (
   `id` int(11) NOT NULL,
-  `device_id` int(11) NOT NULL,
-  `liter` float NOT NULL,
+  `device_id` varchar(255) NOT NULL,
+  `liter` int(11) NOT NULL,
   `percent` int(11) NOT NULL,
-  `event_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `recorded_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -132,16 +133,15 @@ CREATE TABLE `patient_management` (
   `date_of_birth` varchar(50) NOT NULL,
   `admit_date` varchar(255) NOT NULL,
   `admit_time` varchar(50) NOT NULL,
-  `actions` varchar(255) NOT NULL,
-  `device_id` varchar(50) NOT NULL
+  `actions` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `patient_management`
 --
 
-INSERT INTO `patient_management` (`id`, `patient_name`, `room_number`, `date_of_birth`, `admit_date`, `admit_time`, `actions`, `device_id`) VALUES
-(49, 'Juan Dela Cruz', '2000/', '2000/01/01', '2024/11/18', '2:40 am', '', '0');
+INSERT INTO `patient_management` (`id`, `patient_name`, `room_number`, `date_of_birth`, `admit_date`, `admit_time`, `actions`) VALUES
+(49, 'Juan Dela Cruz', '2000/', '2000/01/01', '2024/11/18', '2:40 am', '');
 
 -- --------------------------------------------------------
 
@@ -226,10 +226,11 @@ ALTER TABLE `iv_data`
   ADD PRIMARY KEY (`device_id`);
 
 --
--- Indexes for table `iv_data_history`
+-- Indexes for table `iv_history`
 --
-ALTER TABLE `iv_data_history`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `iv_history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `device_id` (`device_id`);
 
 --
 -- Indexes for table `patient_management`
@@ -257,18 +258,18 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `discharge`
 --
 ALTER TABLE `discharge`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `doc_orders`
 --
 ALTER TABLE `doc_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `iv_data_history`
+-- AUTO_INCREMENT for table `iv_history`
 --
-ALTER TABLE `iv_data_history`
+ALTER TABLE `iv_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -288,6 +289,16 @@ ALTER TABLE `prescription`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `iv_history`
+--
+ALTER TABLE `iv_history`
+  ADD CONSTRAINT `iv_history_ibfk_1` FOREIGN KEY (`device_id`) REFERENCES `iv_data` (`device_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
