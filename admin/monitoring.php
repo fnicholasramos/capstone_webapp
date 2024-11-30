@@ -48,16 +48,46 @@
                     <th>Drip Rate</th>
                     <th>Volume Remaining (mL)</th>
                     <th>Percent(%)</th>
-                    <th>Nurse</th>
-                    <th>Actions</th>
+                    <!-- <th>Nurse</th> -->
+                    <th style="text-align: center;">Actions</th>
                 </tr>
 
                 <tbody id="real-time">
                     <?php include 'function/monitoring/monitored_patient.php'; ?>
                 </tbody>
+
             </table>
         </div>
 
+        <!-- IV Data History Modal -->
+        <div id="history-modal">
+            <div class="upper_nav_history">
+                <div>
+                    <h3>IV Bag History</h3>
+                </div>
+                
+                <div>
+                    <button onclick="document.getElementById('history-modal').style.display='none';" class="xbtn">&#10005;</button>
+                </div>
+            </div>
+
+            <table id="history-table" border="1" style="">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Device ID</th>
+                        <th style="text-align: center;">Liter</th>
+                        <th style="text-align: center;">Percent (%)</th>
+                        <th style="text-align: center;">Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- History rows will be dynamically populated here -->
+                </tbody>
+            </table>
+            
+        </div>
+
+        <!-- <div id="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div> -->
 
 
         <!-- Modal -->
