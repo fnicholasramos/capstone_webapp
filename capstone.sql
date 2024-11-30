@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2024 at 05:55 PM
+-- Generation Time: Nov 30, 2024 at 04:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,16 +35,19 @@ CREATE TABLE `discharge` (
   `admission_time` varchar(255) NOT NULL,
   `discharge_date` varchar(255) NOT NULL,
   `discharge_time` varchar(255) NOT NULL DEFAULT current_timestamp(),
-  `ivf_no` int(10) NOT NULL
+  `ivf_no` int(10) NOT NULL,
+  `nurse` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `discharge`
 --
 
-INSERT INTO `discharge` (`id`, `patient_name`, `iv_fluid`, `admission_date`, `admission_time`, `discharge_date`, `discharge_time`, `ivf_no`) VALUES
-(19, 'Ramon G. Gemaguim', 'Saline', '2024-11-10', '11:22pm', '2024-11-24', '06:50 PM', 2),
-(20, 'Francis Nicholas P. Ramos', 'Saline', '2024-11-24', '10:13pm ', '2024-11-24', '10:15 PM', 1);
+INSERT INTO `discharge` (`id`, `patient_name`, `iv_fluid`, `admission_date`, `admission_time`, `discharge_date`, `discharge_time`, `ivf_no`, `nurse`) VALUES
+(19, 'Ramon G. Gemaguim', 'Saline', '2024-11-10', '11:22pm', '2024-11-24', '06:50 PM', 2, ''),
+(20, 'Francis Nicholas P. Ramos', 'Saline', '2024-11-24', '10:13pm ', '2024-11-24', '10:15 PM', 1, ''),
+(21, 'Megan Griffin', 'Dark Elixir', '2024-11-30', '7:26pm', '2024-11-30', '08:36 PM', 1, 'Peter Griffin'),
+(22, 'Juan Dela Cruz', 'Saline', '2024-11-10', '11:21pm', '2024-11-30', '08:37 PM', 1, 'Sophia Nicole Macam');
 
 -- --------------------------------------------------------
 
@@ -55,6 +58,7 @@ INSERT INTO `discharge` (`id`, `patient_name`, `iv_fluid`, `admission_date`, `ad
 CREATE TABLE `doc_orders` (
   `id` int(11) NOT NULL,
   `patient_name` varchar(255) NOT NULL,
+  `diagnose` varchar(255) NOT NULL,
   `room_number` varchar(10) NOT NULL,
   `iv_fluid_name` varchar(255) NOT NULL,
   `volume` int(10) NOT NULL,
@@ -77,8 +81,8 @@ CREATE TABLE `doc_orders` (
 -- Dumping data for table `doc_orders`
 --
 
-INSERT INTO `doc_orders` (`id`, `patient_name`, `room_number`, `iv_fluid_name`, `volume`, `flow_rate`, `answer`, `drop_factor`, `minutes`, `drip_rate_answer`, `incorp`, `ivf_no`, `date_started`, `time_started`, `date_consumed`, `time_consumed`, `nurse`, `device_id`) VALUES
-(1, 'Juan Dela Cruz', '0001', 'Saline', 1000, 8, '125', '20', '50', '50.00', '', '1', '2024-11-10', '11:21pm', '2024-11-10', '12:21pm', 'Sophia Nicole Macam', 'pt0001');
+INSERT INTO `doc_orders` (`id`, `patient_name`, `diagnose`, `room_number`, `iv_fluid_name`, `volume`, `flow_rate`, `answer`, `drop_factor`, `minutes`, `drip_rate_answer`, `incorp`, `ivf_no`, `date_started`, `time_started`, `date_consumed`, `time_consumed`, `nurse`, `device_id`) VALUES
+(56, 'Juan Dela Cruz', 'Dengue', '0001', 'Normal Saline', 1000, 8, '125', '20', '60', '41.67', '', '1', '2024-11-30', '8:43pm', '2024-11-30', '4:43am', 'Sophia Nicole Macam', 'pt0001');
 
 -- --------------------------------------------------------
 
@@ -90,7 +94,6 @@ CREATE TABLE `iv_data` (
   `device_id` varchar(50) NOT NULL,
   `liter` float NOT NULL,
   `percent` int(11) NOT NULL,
-  `flow_rate_sensor` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -98,9 +101,23 @@ CREATE TABLE `iv_data` (
 -- Dumping data for table `iv_data`
 --
 
-INSERT INTO `iv_data` (`device_id`, `liter`, `percent`, `flow_rate_sensor`, `time`) VALUES
-('pt0001', 0, 0, 0, '2024-11-29 15:05:58'),
-('pt0002', 0, 0, 0, '2024-11-17 17:25:24');
+INSERT INTO `iv_data` (`device_id`, `liter`, `percent`, `time`) VALUES
+('pt0001', 0, 0, '2024-11-30 14:21:22'),
+('pt0002', 0, 0, '2024-11-17 17:25:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `iv_data_history`
+--
+
+CREATE TABLE `iv_data_history` (
+  `id` int(11) NOT NULL,
+  `device_id` int(11) NOT NULL,
+  `liter` float NOT NULL,
+  `percent` int(11) NOT NULL,
+  `event_time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -125,6 +142,41 @@ CREATE TABLE `patient_management` (
 
 INSERT INTO `patient_management` (`id`, `patient_name`, `room_number`, `date_of_birth`, `admit_date`, `admit_time`, `actions`, `device_id`) VALUES
 (49, 'Juan Dela Cruz', '2000/', '2000/01/01', '2024/11/18', '2:40 am', '', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prescription`
+--
+
+CREATE TABLE `prescription` (
+  `id` int(11) NOT NULL,
+  `patient_name` varchar(255) DEFAULT NULL,
+  `diagnostic` varchar(255) DEFAULT NULL,
+  `room_no` varchar(50) DEFAULT NULL,
+  `device_id` varchar(50) DEFAULT NULL,
+  `iv_fluid` varchar(255) DEFAULT NULL,
+  `volume` int(11) DEFAULT NULL,
+  `per_hour` int(11) DEFAULT NULL,
+  `drop_factor` int(11) DEFAULT NULL,
+  `per_minute` int(11) DEFAULT NULL,
+  `incorporation` varchar(255) DEFAULT NULL,
+  `ivf_no` int(11) DEFAULT NULL,
+  `date_started` date DEFAULT NULL,
+  `time_started` varchar(20) DEFAULT NULL,
+  `date_to_consumed` date DEFAULT NULL,
+  `time_to_consumed` varchar(20) DEFAULT NULL,
+  `nurse_on_duty` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `prescription`
+--
+
+INSERT INTO `prescription` (`id`, `patient_name`, `diagnostic`, `room_no`, `device_id`, `iv_fluid`, `volume`, `per_hour`, `drop_factor`, `per_minute`, `incorporation`, `ivf_no`, `date_started`, `time_started`, `date_to_consumed`, `time_to_consumed`, `nurse_on_duty`) VALUES
+(15, 'Megan Griffin', 'Noy', '0002', 'pt0001', 'Dark Elixir', 1000, 8, 20, 60, '', 1, '2024-11-30', '7:26pm', '2024-11-30', '3:26am', 'Peter Griffin'),
+(16, 'Megan Griffin', 'Noy', '0002', 'pt0001', 'Dark Elixir', 1000, 8, 20, 60, '', 1, '2024-11-30', '7:26pm', '2024-11-30', '3:26am', 'Peter Griffin'),
+(17, 'Megan Griffin', 'Noy', '0002', 'pt0001', 'Dark Elixir', 1000, 8, 20, 60, '', 1, '2024-11-30', '7:26pm', '2024-11-30', '3:26am', 'Peter Griffin');
 
 -- --------------------------------------------------------
 
@@ -174,9 +226,21 @@ ALTER TABLE `iv_data`
   ADD PRIMARY KEY (`device_id`);
 
 --
+-- Indexes for table `iv_data_history`
+--
+ALTER TABLE `iv_data_history`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `patient_management`
 --
 ALTER TABLE `patient_management`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `prescription`
+--
+ALTER TABLE `prescription`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -193,19 +257,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `discharge`
 --
 ALTER TABLE `discharge`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `doc_orders`
 --
 ALTER TABLE `doc_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `iv_data_history`
+--
+ALTER TABLE `iv_data_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patient_management`
 --
 ALTER TABLE `patient_management`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+
+--
+-- AUTO_INCREMENT for table `prescription`
+--
+ALTER TABLE `prescription`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
