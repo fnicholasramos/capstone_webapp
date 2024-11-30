@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="navs">
-                            <a href="" target="frame"><li><span class="doc presc"><img src="../assets/images/list.png" height="30px" class="icon prescription">Prescription</span></li></a>
+                            <a href="../admin/prescription.php" target="frame"><li><span class="doc presc"><img src="../assets/images/list.png" height="30px" class="icon prescription">Prescription</span></li></a>
                         </div>
                         
                         <div class="navs">
