@@ -1,6 +1,7 @@
-function openEditModal(id, name, room, fluid_name, volume, flow_rate, answer, drop_factor, minutes, drip_rate_answer, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse, device) {
+function openEditModal(id, name, diagnose, room, fluid_name, volume, flow_rate, answer, drop_factor, minutes, drip_rate_answer, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse, device) {
     document.getElementById('editId').value = id;
     document.getElementById('name').value = name;
+    document.getElementById('diagnose').value = diagnose;
     document.getElementById('device').value = device;
     document.getElementById('room').value = room;
     document.getElementById('iv_name').value = fluid_name;

@@ -5,6 +5,7 @@ include 'db.php';
 // Join table "iv_data"
 $sql = "SELECT do.id, 
                do.patient_name, 
+               do.diagnose, 
                do.device_id, 
                do.room_number, 
                do.iv_fluid_name, 
@@ -47,6 +48,7 @@ if ($result && $result->num_rows > 0) {
                         <a href='#' onclick=\"openEditModal(
                             '{$row['id']}',
                             '{$row['patient_name']}',
+                            '{$row['diagnose']}',
                             '{$row['room_number']}',
                             '{$row['iv_fluid_name']}',
                             '{$row['volume']}',

@@ -3,6 +3,7 @@ include '../../db.php';
 
 // Retrieve and sanitize form data
 $patientName = filter_input(INPUT_POST, 'patientName', FILTER_SANITIZE_STRING);
+$diagnose = filter_input(INPUT_POST, 'diagnose', FILTER_SANITIZE_STRING);
 $room = filter_input(INPUT_POST, 'room', FILTER_SANITIZE_STRING);
 $iv_fluid = filter_input(INPUT_POST, 'iv_fluid', FILTER_SANITIZE_STRING);
 $volume = filter_input(INPUT_POST, 'volume', FILTER_VALIDATE_FLOAT);
@@ -22,9 +23,9 @@ $device = filter_input(INPUT_POST, 'device', FILTER_SANITIZE_STRING);
 
 // Prepare the SQL statement
 $sql = "INSERT INTO doc_orders 
-        (patient_name, room_number, iv_fluid_name, volume, flow_rate, answer, drop_factor, minutes, 
+        (patient_name, diagnose, room_number, iv_fluid_name, volume, flow_rate, answer, drop_factor, minutes, 
          drip_rate_answer, incorp, ivf_no, date_started, time_started, date_consumed, time_consumed, nurse, device_id) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($sql);
 
@@ -34,8 +35,9 @@ if (!$stmt) {
 
 // Bind parameters
 $stmt->bind_param(
-    "sssdddsddssssssss", 
-    $patientName, 
+    "ssssdddsddssssssss", 
+    $patientName,
+    $diagnose, 
     $room, 
     $iv_fluid,  
     $volume, 

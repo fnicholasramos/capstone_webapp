@@ -7,6 +7,7 @@ include '../../db.php';
 
 $sql = "SELECT do.id, 
                do.patient_name, 
+               do.diagnose, 
                do.device_id, 
                do.room_number, 
                do.iv_fluid_name, 

@@ -27,6 +27,7 @@ function fetchRealTimeData() {
                                     <a href='#' onclick="openEditModal(
                                         '${row.id}',
                                         '${row.patient_name}',
+                                        '${row.diagnose}',
                                         '${row.room_number}',
                                         '${row.iv_fluid_name}', 
                                         '${row.volume}', 

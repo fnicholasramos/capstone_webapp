@@ -5,6 +5,7 @@ include '../../db.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     $id = intval($_POST['id']);
     $patient_name = $_POST['patientName'];
+    $diagnose = $_POST['diagnose'];
     $device = $_POST['device'];
     $room_number = $_POST['room'];
     $iv_fluid = $_POST['iv_fluid'];
@@ -35,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     // Prepare the SQL query to update patient data
     $sql = "UPDATE doc_orders SET 
                 patient_name = '$patient_name', 
+                diagnose = '$diagnose', 
                 room_number = '$room_number',
                 iv_fluid_name = '$iv_fluid',
                 volume = '$volume',
