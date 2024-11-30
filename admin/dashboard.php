@@ -41,9 +41,11 @@
                             <a href="../admin/orders.php" target="frame"><li><span class="doc"><img src="../assets/images/pin.png" height="40px" class="icon">Doctor's Order</span></li></a>
                         </div>
 
+                        <?php if (isset($_SESSION['privilege']) && $_SESSION['privilege'] === 'admin'): ?>
                         <div class="navs">
                             <a href="../admin/prescription.php" target="frame"><li><span class="doc presc"><img src="../assets/images/list.png" height="30px" class="icon prescription">Prescription</span></li></a>
                         </div>
+                        <?php endif; ?>
                         
                         <div class="navs">
                             <a href="../admin/monitoring.php" target="frame"><li><span class="doc"><img src="../assets/images/teacher.png" height="40px" class="icon"></span>Patient Monitoring</li></a>
