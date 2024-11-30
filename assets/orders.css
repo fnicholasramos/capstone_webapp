@@ -7,6 +7,8 @@
 
 .container {
     margin: 20px 0 0 20px; /* top, right, bottom, left */
+    display: flex;
+    flex-direction: row;
 }
 
 h2 {
@@ -20,7 +22,7 @@ h3 {
 
 .input_container {
     /* height: 580px; */
-    width: 40%;
+    width: 100%;
     background-color: #f2f2f2;
     padding: 25px;
     border: hidden;
@@ -40,6 +42,7 @@ u {
     background-color: #ffffff;
     padding: 10px 0 10px 10px;
     border-radius: 8px;
+    width: 100%;
 }
 
 .room, .device {
@@ -155,4 +158,84 @@ input[type="number"]::-webkit-inner-spin-button {
 .clear:hover {
     background-color: #5b6369;
     cursor: pointer;
+}
+
+.docInput {
+    
+
+}
+
+
+/* Form 2 */
+
+.output {
+    margin: 80px 0 0px 30px;
+    padding: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    width: 500px;
+}
+
+.orders {
+    text-align: center;
+}
+
+
+.view {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 580px;
+    width: 500px;
+    border: 1px solid #a5a5a5;
+    border-radius: 4px;
+    overflow-y: auto;
+}
+
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.message:hover {
+    background-color: #f1f1f1;
+}
+
+.summary {
+    font-weight: bold;
+}
+
+.details {
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.details.hidden {
+    display: none;
+}
+
+.details.visible {
+    display: block;
+}
+
+/* delete button "x" */
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 6px;
+    cursor: pointer;
+    float: right;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
 }
