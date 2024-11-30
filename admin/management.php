@@ -26,7 +26,9 @@
     <div class="container"> 
         <div class="top">
             <h2>Patient Management</h2>
+            <?php if (isset($_SESSION['privilege']) && $_SESSION['privilege'] === 'admin'): ?>
             <button class="newPatient" id="openModalBtn">Add New Patient</button>
+            <?php endif; ?>
         </div>
         
         <div class="searchbar">
@@ -44,7 +46,9 @@
                     <th style="text-align: left;">Date of Birth</th>
                     <th style="text-align: left;">Admit Date</th>
                     <th style="text-align: left;">Admit Time</th>
+                    <?php if (isset($_SESSION['privilege']) && $_SESSION['privilege'] === 'admin'): ?>
                     <th>Actions</th>
+                    <?php endif; ?>
 
                 </tr>
                 

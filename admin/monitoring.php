@@ -76,6 +76,8 @@
                     <div class="fluid">
                         
                         <span>
+                            Diagnostic:
+                            <input type="text" name="diagnose" id="diagnose" <?php echo ($_SESSION['privilege'] !== 'admin') ? 'disabled' : ''; ?> ><br><br>
                             Device ID: 
                             <input type="text" name="device" class="inputs" id="device" <?php echo ($_SESSION['privilege'] !== 'admin') ? 'disabled' : ''; ?> >
                             Room No: 
