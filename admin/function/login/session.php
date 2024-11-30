@@ -2,7 +2,7 @@
 session_start();
 
 // Idle timeout duration (in seconds)
-$timeoutDuration = 600;
+$timeoutDuration = 1800;
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
