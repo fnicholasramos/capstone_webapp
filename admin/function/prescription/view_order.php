@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
 
         // Check if the user is an admin and include the delete button if true
         if (isset($_SESSION['privilege']) && $_SESSION['privilege'] === 'admin') {
-            echo '<button class="delete-btn" onclick="deleteRow(event, ' . $row['id'] . ')">x</button>';
+            echo '<button class="delete-btn" onclick="deleteRow(event, ' . $row['id'] . ')">&#10005;</button>';
         }
 
         echo '</div>
