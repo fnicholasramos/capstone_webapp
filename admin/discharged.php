@@ -40,6 +40,7 @@
                     <th style="text-align: left;">Admission Date and Time</th>
                     <th style="text-align: left;">Discharge Date and Time</th>
                     <th>IVF no.</th>
+                    <th>Nurse</th>
                 </tr>
 
                 <tr>
