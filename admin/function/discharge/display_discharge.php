@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 
-$sql = "SELECT id, patient_name, iv_fluid, admission_date, admission_time, discharge_date, discharge_time, ivf_no FROM discharge ORDER BY id DESC";
+$sql = "SELECT id, patient_name, iv_fluid, admission_date, admission_time, discharge_date, discharge_time, ivf_no, nurse FROM discharge ORDER BY id DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -28,6 +28,8 @@ if ($result->num_rows > 0) {
         
         // IVF Number (center-aligned)
         echo "<td style='text-align:center;'>" . htmlspecialchars($row['ivf_no']) . "</td>";
+
+        echo "<td style='text-align:center;'>" . htmlspecialchars($row['nurse']) . "</td>";
         
         echo "</tr>";
     }
