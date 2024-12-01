@@ -72,6 +72,31 @@ table {
     width: 100%;
 }
 
+.printer {
+    
+    
+}
+
+.print {
+    border: hidden;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007575;
+    padding: 3px 5px 3px 3px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.print:hover {
+    background-color: #006969;
+    cursor: pointer;
+}
+
+/* Generate to pdf button */
+
+
 td, th {
     border: 1px solid #b4b4b4;
     padding: 10px 30px 10px 30px;
