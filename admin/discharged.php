@@ -22,6 +22,10 @@
     <div class="container"> 
         <div class="top">
             <h2>Discharged Patients</h2>
+
+            <div class="printer">
+                <button class="print"><img src="../assets/images/export.png" height="30px" class="print">Export</button>
+            </div>
         </div>
         
         <div class="searchbar">
@@ -36,11 +40,13 @@
                 <!-- header -->
                 <tr>
                     <th style="text-align: left;">Patient Name</th>
+                    <th style="text-align: left;">Diagnostic</th>
                     <th style="text-align: left;">IV Fluid Name</th>
                     <th style="text-align: left;">Admission Date and Time</th>
                     <th style="text-align: left;">Discharge Date and Time</th>
                     <th>IVF no.</th>
                     <th>Nurse</th>
+                    <th>Action</th>
                 </tr>
 
                 <tr>

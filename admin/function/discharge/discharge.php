@@ -21,8 +21,8 @@ if (isset($_GET['id'])) {
         $current_time_now = date('h:i A');
 
         // Insert the data into the `discharge` table
-        $insert_sql = "INSERT INTO discharge (patient_name, iv_fluid, admission_date, admission_time, discharge_date, discharge_time, ivf_no, nurse)
-                       VALUES ('{$row['patient_name']}', '{$row['iv_fluid_name']}', '{$row['date_started']}', 
+        $insert_sql = "INSERT INTO discharge (patient_name, diagnose, iv_fluid, admission_date, admission_time, discharge_date, discharge_time, ivf_no, nurse)
+                       VALUES ('{$row['patient_name']}', '{$row['diagnose']}', '{$row['iv_fluid_name']}', '{$row['date_started']}', 
                                 '{$row['time_started']}', '$current_date', '$current_time_now', '{$row['ivf_no']}', '{$row['nurse']}')";
 
         if ($conn->query($insert_sql) === TRUE) {
