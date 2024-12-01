@@ -113,7 +113,7 @@
 
         <!-- form 2 -->
         <div class="output">
-            <h2 class="orders">Orders</h2>
+            <h2 class="orders">Prescription Orders</h2>
             <div class="view">
                 <?php include 'function/prescription/view_order.php';?>
 
