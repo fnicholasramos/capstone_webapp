@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2024 at 08:06 PM
+-- Generation Time: Dec 01, 2024 at 07:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `discharge` (
   `id` int(10) NOT NULL,
   `patient_name` varchar(255) NOT NULL,
+  `diagnose` varchar(255) NOT NULL,
   `iv_fluid` varchar(255) NOT NULL,
   `admission_date` date NOT NULL,
   `admission_time` varchar(255) NOT NULL,
@@ -43,12 +44,14 @@ CREATE TABLE `discharge` (
 -- Dumping data for table `discharge`
 --
 
-INSERT INTO `discharge` (`id`, `patient_name`, `iv_fluid`, `admission_date`, `admission_time`, `discharge_date`, `discharge_time`, `ivf_no`, `nurse`) VALUES
-(19, 'Ramon G. Gemaguim', 'Saline', '2024-11-10', '11:22pm', '2024-11-24', '06:50 PM', 2, ''),
-(20, 'Francis Nicholas P. Ramos', 'Saline', '2024-11-24', '10:13pm ', '2024-11-24', '10:15 PM', 1, ''),
-(21, 'Megan Griffin', 'Dark Elixir', '2024-11-30', '7:26pm', '2024-11-30', '08:36 PM', 1, 'Peter Griffin'),
-(22, 'Juan Dela Cruz', 'Saline', '2024-11-10', '11:21pm', '2024-11-30', '08:37 PM', 1, 'Sophia Nicole Macam'),
-(23, 'Test', 'Dark Elixir', '2024-12-01', '10:34pm', '2024-12-01', '02:21 AM', 1, 'Justin Bieber');
+INSERT INTO `discharge` (`id`, `patient_name`, `diagnose`, `iv_fluid`, `admission_date`, `admission_time`, `discharge_date`, `discharge_time`, `ivf_no`, `nurse`) VALUES
+(19, 'Ramon G. Gemaguim', '', 'Saline', '2024-11-10', '11:22pm', '2024-11-24', '06:50 PM', 2, ''),
+(20, 'Francis Nicholas P. Ramos', '', 'Saline', '2024-11-24', '10:13pm ', '2024-11-24', '10:15 PM', 1, ''),
+(21, 'Megan Griffin', '', 'Dark Elixir', '2024-11-30', '7:26pm', '2024-11-30', '08:36 PM', 1, 'Peter Griffin'),
+(22, 'Juan Dela Cruz', '', 'Saline', '2024-11-10', '11:21pm', '2024-11-30', '08:37 PM', 1, 'Sophia Nicole Macam'),
+(23, 'Test', '', 'Dark Elixir', '2024-12-01', '10:34pm', '2024-12-01', '02:21 AM', 1, 'Justin Bieber'),
+(24, 'Chip ', 'High Fever', 'Normal Saline', '2024-12-01', '6:24 pm', '2024-12-01', '06:25 PM', 1, 'Sophia Nicole Macam'),
+(25, 'Francis Nicholas P. Ramos', 'Nakalmot ng cat', 'RX Saline', '2024-12-02', '12:43am', '2024-12-02', '12:44 AM', 2, 'Maria Yvone Siobal');
 
 -- --------------------------------------------------------
 
@@ -174,9 +177,7 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`id`, `patient_name`, `diagnostic`, `room_no`, `device_id`, `iv_fluid`, `volume`, `per_hour`, `drop_factor`, `per_minute`, `incorporation`, `ivf_no`, `date_started`, `time_started`, `date_to_consumed`, `time_to_consumed`, `nurse_on_duty`) VALUES
-(15, 'Megan Griffin', 'Noy', '0002', 'pt0001', 'Dark Elixir', 1000, 8, 20, 60, '', 1, '2024-11-30', '7:26pm', '2024-11-30', '3:26am', 'Peter Griffin'),
-(16, 'Megan Griffin', 'Noy', '0002', 'pt0001', 'Dark Elixir', 1000, 8, 20, 60, '', 1, '2024-11-30', '7:26pm', '2024-11-30', '3:26am', 'Peter Griffin'),
-(17, 'Megan Griffin', 'Noy', '0002', 'pt0001', 'Dark Elixir', 1000, 8, 20, 60, '', 1, '2024-11-30', '7:26pm', '2024-11-30', '3:26am', 'Peter Griffin');
+(18, 'Cookies', 'Balileng', '0001', 'pt0001', 'Dark Elixir', 1000, 1, 20, 60, '', 1, '2024-12-01', '8:19pm', '2024-12-01', '2:51am', 'Peter Griffin');
 
 -- --------------------------------------------------------
 
@@ -258,13 +259,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `discharge`
 --
 ALTER TABLE `discharge`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `doc_orders`
 --
 ALTER TABLE `doc_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `iv_history`
@@ -282,7 +283,7 @@ ALTER TABLE `patient_management`
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`
