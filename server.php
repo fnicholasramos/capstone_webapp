@@ -3,23 +3,23 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Set the content type to JSON, since the ESP32 is likely sending JSON data
+// Set content type
 header("Content-Type: application/json");
 
-// Database connection settings
+// Database connection
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "capstone";
+$database = "database";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die(json_encode(["error" => "Connection failed: " . $conn->connect_error]));
 }
 
-// Read and parse the incoming POST request
+// Parse POST data
 $data = json_decode(file_get_contents("php://input"), true);
 
 if (isset($data['device_id']) && isset($data['liter']) && isset($data['percent'])) {
@@ -27,11 +27,11 @@ if (isset($data['device_id']) && isset($data['liter']) && isset($data['percent']
     $liter = $data['liter'];
     $percent = $data['percent'];
 
-    // Begin a transaction
+    // Begin transaction
     $conn->begin_transaction();
 
     try {
-        // Update or insert into iv_data
+        // Insert or update iv_data
         $stmt = $conn->prepare("INSERT INTO iv_data (device_id, liter, percent) VALUES (?, ?, ?) 
                                 ON DUPLICATE KEY UPDATE liter = VALUES(liter), percent = VALUES(percent)");
         $stmt->bind_param("sii", $device_id, $liter, $percent);
@@ -44,7 +44,7 @@ if (isset($data['device_id']) && isset($data['liter']) && isset($data['percent']
         $historyStmt->execute();
         $historyStmt->close();
 
-        // Commit the transaction
+        // Commit transaction
         $conn->commit();
         echo json_encode(["message" => "Data received and history recorded!"]);
     } catch (Exception $e) {
@@ -55,9 +55,8 @@ if (isset($data['device_id']) && isset($data['liter']) && isset($data['percent']
     }
 } else {
     http_response_code(400);
-    echo json_encode(["error" => "Invalid data"]);
+    echo json_encode(["error" => "Invalid or missing data. Ensure 'device_id', 'liter', and 'percent' are included."]);
 }
-
 
 $conn->close();
 ?>
