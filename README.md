@@ -4,6 +4,7 @@ This project is a web application developed as part of our capstone project for 
 
 This project is created and will be part of hospitals of Manila, who will serve as our client and primary source of information that will guide us in gathering the essential knowledge and requirements needed for effective and secure data management.
 
+![Health Guard](screenshot.png)
 
 ## Setup
 
