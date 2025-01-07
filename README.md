@@ -2,9 +2,7 @@
 
 This project is a web application developed as part of our capstone project for school academic requirement. The application serves as a data management system for patient information, aiming to provide a more efficient and systematic process for encoding patient records. By providing a structured, user-friendly platform, the application aims to enhance data handling processes.
 
-This project is created and will be part of [Jose R. Reyes Memorial Medical Center](https://jrrmmc.gov.ph/), who will serve as our client and primary source of information that will guide us in gathering the essential knowledge and requirements needed for effective and secure data management.
-
-⚠️ **Note:** This project is still under development.
+This project is created and will be part of hospitals of Manila, who will serve as our client and primary source of information that will guide us in gathering the essential knowledge and requirements needed for effective and secure data management.
 
 
 ## Setup
