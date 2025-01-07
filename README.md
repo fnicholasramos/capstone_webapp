@@ -22,6 +22,5 @@ This project is created and will be part of hospitals of Manila, who will serve 
 
 ## Credits 
 This project utilizes the TCPDF libray, an open-source PDF generation library for PHP, developed and maintained by [Nicola Asuni](https://github.com/nicolaasuni).
-an open-source PDF generation library for PHP, developed and maintained by Nicola Asuni.
 
 For more information about TCPDF, visit the official repository: [TCPDF](https://github.com/tecnickcom/TCPDF)
