@@ -23,9 +23,9 @@
         <div class="top">
             <h2>Discharged Patients</h2>
 
-            <div class="printer">
+            <!-- <div class="printer">
                 <button class="print"><img src="../assets/images/export.png" height="30px" class="print">Export</button>
-            </div>
+            </div> -->
         </div>
         
         <div class="searchbar">
