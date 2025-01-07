@@ -108,7 +108,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
         <div class="box">
             <div class="client">
                 <div class="text-two">
-                The target respondents for this study are the registered nurses and IT staff of the Jose R. Reyes Memorial Medical Center (JRRMC), whose insights and feedback are vital for evaluating and improving the system.
+                The target respondents for this study are the registered nurses and IT staff of Manila hospitals, whose insights and feedback are vital for evaluating and improving the system.
                 </div>
             </div>
 
