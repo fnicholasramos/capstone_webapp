@@ -15,5 +15,12 @@ This project is created and will be part of hospitals of Manila, who will serve 
 5. Set Up the Database
     - Open a browser and go to http://localhost/phpmyadmin.
     - Create a new database name `capstone` then import the SQL file provided 
-6. Browse to [http://localhost/capstone/](http://localhost/capstone/) 
-7. Login `admin:jenkins1`, `user1:user1234`, `user2:user4321`
+6. Go to `capstone/vendor/tecnickcom/` open a terminal shell and paste this: `git clone https://github.com/tecnickcom/TCPDF.git`
+7. Browse to [http://localhost/capstone/](http://localhost/capstone/) 
+8. Login `admin:jenkins1`, `user1:user1234`, `user2:user4321`
+
+## Credits 
+This project utilizes the TCPDF libray, an open-source PDF generation library for PHP, developed and maintained by [Nicola Asuni](https://github.com/nicolaasuni).
+an open-source PDF generation library for PHP, developed and maintained by Nicola Asuni.
+
+For more information about TCPDF, visit the official repository: [TCPDF](https://github.com/tecnickcom/TCPDF)
