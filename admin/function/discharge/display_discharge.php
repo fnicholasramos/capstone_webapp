@@ -1,7 +1,21 @@
 <?php
 include 'db.php';
 
-$sql = "SELECT id, patient_name, diagnose, iv_fluid, admission_date, admission_time, discharge_date, discharge_time, ivf_no, nurse FROM discharge ORDER BY id DESC";
+$sql = "SELECT 
+            d.id AS discharge_id, 
+            o.patient_name, 
+            o.diagnose, 
+            o.iv_fluid_name AS iv_fluid, 
+            d.admission_date, 
+            d.admission_time, 
+            d.discharge_date, 
+            d.discharge_time, 
+            o.ivf_no, 
+            o.nurse
+        FROM discharge d
+        JOIN doc_orders o ON d.doc_order_id = o.id
+        ORDER BY d.id DESC";
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -33,11 +47,11 @@ if ($result->num_rows > 0) {
         echo "<td style='text-align:center;'>" . htmlspecialchars($row['ivf_no']) . "</td>";
 
         echo "<td style='text-align:center;'>" . htmlspecialchars($row['nurse']) . "</td>";
-        echo "<td><a href='generate_pdf.php?id=" . htmlspecialchars($row['id']) . "' target='_blank' class='generate'><img src='../assets/images/pdf.png' height='40px'></a></td>";
+        echo "<td><a href='generate_pdf.php?id=" . htmlspecialchars($row['discharge_id']) . "' target='_blank' class='generate'><img src='../assets/images/pdf.png' height='40px'></a></td>";
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='6' style='color: red;'>No records found.</td></tr>";
+    echo "<tr><td colspan='8' style='color: red;'>No records found.</td></tr>";
 }
 $conn->close();
 ?>
