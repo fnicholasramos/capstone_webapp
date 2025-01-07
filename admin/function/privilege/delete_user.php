@@ -9,9 +9,26 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Sanitize the input to avoid SQL injection
     $userId = intval($userId);  // Convert to integer
 
-    // Delete the user from the database
+    // First, check if the user is an admin
+    $query = "SELECT privilege FROM users WHERE id = ?";
+    if ($stmt = $conn->prepare($query)) {
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $stmt->bind_result($privilege);
+        $stmt->fetch();
+        
+        // If the user is an admin, prevent deletion
+        if ($privilege === 'admin') {
+            header("Location: ../../edit-privilege.php");
+            exit();
+        }
+
+        $stmt->close();
+    }
+
+    // Delete the user from the database if not an admin
     $query = "DELETE FROM users WHERE id = ?";
-    
+
     // Prepare the SQL statement
     if ($stmt = $conn->prepare($query)) {
         // Bind the parameter (user ID)

@@ -14,6 +14,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $userId = intval($userId); // Convert user ID to an integer
             $newPrivilege = htmlspecialchars($newPrivilege); // Escape the privilege value
 
+            // If trying to promote a user to admin, check if there is already an admin
+            if ($newPrivilege === 'admin') {
+                // Check if there is already an admin
+                $query = "SELECT id, privilege FROM users WHERE privilege = 'admin'";
+                $result = $conn->query($query);
+
+                // If there's already an admin, we need to demote the current admin to 'user'
+                if ($result->num_rows > 0) {
+                    $currentAdmin = $result->fetch_assoc();
+                    $currentAdminId = $currentAdmin['id'];
+
+                    // Demote the current admin to 'user'
+                    $updateQuery = "UPDATE users SET privilege = 'user' WHERE id = ?";
+                    if ($stmt = $conn->prepare($updateQuery)) {
+                        $stmt->bind_param('i', $currentAdminId);
+                        $stmt->execute();
+                        $stmt->close();
+                    }
+                }
+            }
+
             // SQL query to update the user's privilege
             $query = "UPDATE users SET privilege = ? WHERE id = ?";
 
