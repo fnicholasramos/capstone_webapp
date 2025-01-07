@@ -5,13 +5,28 @@ include 'db.php';
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     
-    // Fetch row data
-    $sql = "SELECT * FROM discharge WHERE id = ?";
+    // Fetch data using a JOIN
+    $sql = "SELECT 
+                d.id AS discharge_id, 
+                o.patient_name, 
+                o.diagnose, 
+                o.nurse, 
+                o.iv_fluid_name AS iv_fluid, 
+                o.ivf_no, 
+                d.admission_date, 
+                d.admission_time, 
+                d.discharge_date, 
+                d.discharge_time
+            FROM discharge d
+            JOIN doc_orders o ON d.doc_order_id = o.id
+            WHERE d.id = ?";
+    
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
     $data = $result->fetch_assoc();
+    
     if (!$data) {
         die('No record found');
     }
@@ -22,78 +37,16 @@ if (isset($_GET['id'])) {
     $pdf->SetTitle('Report');
     $pdf->AddPage();
 
-    $pdf->SetFont('helvetica', '', 13.5); // Font size set to 14
+    $pdf->SetFont('helvetica', '', 13.5); // Font size set to 13.5
     
     // HTML content
     $html = <<<EOD
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.top {
-    display: flex;
-    justify-content: center;
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.trio {
-    display: flex;
-}
-
-.jrrmc {
-    color: #333;
-}
-
-.republic {
-    text-decoration: underline;
-    
-    margin-bottom: -2px;
-}
-
-.half {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-left: 3px;
-
-}
-
-h2 {
-    margin-top: 25px;
-}
-
-.information {
-    font-family: 'Inter';
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    height: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px;
-}
-
-h3 {
-    color: #1c5c3f;
-}
-
-p {
-    font-size: 17px;
-    font-weight: 500;
-}
-
-h3, p {
-    margin-bottom: 15px;
-}
+/* Add your styles here */
 </style>
-
 </head>
 <body>
     <div class="container">
@@ -132,8 +85,6 @@ EOD;
 
     // Output PDF
     $pdf->Output('Hospital_Report_' . $data['patient_name'] . '.pdf', 'I'); // 'I' for inline display
-
-    // Add footer with transparent text
 
 } else {
     echo "Invalid ID.";
