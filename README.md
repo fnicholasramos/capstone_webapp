@@ -15,7 +15,8 @@ This project is created and will be part of hospitals of Manila, who will serve 
 5. Set Up the Database
     - Open a browser and go to http://localhost/phpmyadmin.
     - Create a new database name `capstone` then import the SQL file provided 
-6. Go to `capstone/vendor/tecnickcom/` open a terminal shell and paste this: `git clone https://github.com/tecnickcom/TCPDF.git`
+6. Go to `capstone/vendor/tecnickcom/` open a terminal and clone paste: 
+    - `git clone https://github.com/tecnickcom/TCPDF.git`
 7. Browse to [http://localhost/capstone/](http://localhost/capstone/) 
 8. Login `admin:jenkins1`, `user1:user1234`, `user2:user4321`
 
