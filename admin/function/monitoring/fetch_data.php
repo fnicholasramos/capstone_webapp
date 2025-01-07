@@ -1,10 +1,7 @@
 <?php
 include '../../db.php';
 
-// do.mL, do.percent, //include these columns if real-time data doesn't work
-
-// do.device_id, do.room_number,
-
+// The SQL query now includes a condition to filter out discharged patients (where discharged = 0)
 $sql = "SELECT do.id, 
                do.patient_name, 
                do.diagnose, 
@@ -24,11 +21,11 @@ $sql = "SELECT do.id,
                do.date_consumed, 
                do.time_consumed, 
                do.nurse, 
-
-               iv.device_id, iv.liter, iv.percent 
+               iv.device_id AS iv_device_id, iv.liter, iv.percent 
         FROM doc_orders do 
         LEFT JOIN iv_data iv ON do.device_id = iv.device_id 
-        ORDER BY do.id DESC";
+        WHERE do.discharged = 0  -- Filter out discharged patients
+        ORDER BY do.id DESC";  // Fetch the latest records
 
 $result = $conn->query($sql);
 $data = [];

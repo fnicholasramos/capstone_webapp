@@ -6,12 +6,17 @@ function fetchRealTimeData() {
             tableBody.innerHTML = ''; // Clear existing rows
 
             data.forEach(row => {
+                // Skip or hide the row if the patient is discharged
+                if (row.discharged == 1) {
+                    return; // Skip adding this row to the table
+                }
+
                 const dischargeLink = (userPrivilege === 'admin') 
                     ? `<a href="function/discharge/discharge.php?id=${row.id}" onclick='return confirm("Are you sure to DISCHARGE this patient?");'>Discharge</a>`
                     : '';
 
-                const rowHtml = `
-                    <tr>
+                    const rowHtml = `
+                    <tr class="${row.discharged == 1 ? 'hidden' : ''}">
                         <td>${row.patient_name}</td>
                         <td>${row.room_number}</td>
                         <td style="color: ${row.device_id ? 'inherit' : '#0066cc'};">${row.device_id ? row.device_id : 'null'}</td>
@@ -32,11 +37,9 @@ function fetchRealTimeData() {
                                         '${row.volume}', 
                                         '${row.flow_rate}',
                                         '${row.answer}',
-
                                         '${row.drop_factor}',
                                         '${row.minutes}',
                                         '${row.drip_rate_answer}',
-
                                         '${row.incorp}',
                                         '${row.ivf_no}',
                                         '${row.date_started}',
@@ -52,7 +55,7 @@ function fetchRealTimeData() {
                             <button onclick="fetchHistory('${row.device_id}')" class="viewHistory">IVF Record</button>
                         </td>
                     </tr>
-                `;
+                `;                
                 tableBody.innerHTML += rowHtml;
             });
 
@@ -62,7 +65,7 @@ function fetchRealTimeData() {
         .catch(error => console.error('Error fetching data:', error));
 }
 
-setInterval(fetchRealTimeData, 2000); // Fetch every 1 second for real-time updates
+setInterval(fetchRealTimeData, 2000); // Fetch every 2 seconds for real-time updates
 // Initial load
 fetchRealTimeData();
 
